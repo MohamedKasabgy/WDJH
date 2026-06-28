@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+@import './styles/design-tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Brand Design Tokens */
+    --color-primary: #1F2A4A;
+    --color-secondary: #75031C;
+    --color-secondary-dark: #61071D;
+    --color-tertiary: #9AC5DB;
+    --color-neutral: #17213F;
+    --color-bg: #EEF1FF;
+    --color-soft: #EEF1FF;
+    --color-surface: #F8F9FF;
+    --color-sand: #9AC5DB;
+    --color-border: #E6E7E8;
+    --color-white: #FFFFFF;
+    --color-primary-light: rgba(31, 42, 74, 0.08);
+    --color-primary-soft: rgba(31, 42, 74, 0.04);
+    --color-secondary-light: rgba(117, 3, 28, 0.08);
+    --color-secondary-glow: rgba(117, 3, 28, 0.18);
+    --color-tertiary-light: rgba(154, 197, 219, 0.2);
+    --color-tertiary-glow: rgba(154, 197, 219, 0.34);
+    --color-sand-light: rgba(154, 197, 219, 0.22);
+    --color-primary-hover: #2a3a66;
+    --color-secondary-hover: #8f0422;
+    --shadow-soft: 0 24px 70px rgba(23, 33, 63, 0.12);
+    --shadow-card: 0 16px 44px rgba(23, 33, 63, 0.08);
+    --shadow-hover: 0 26px 64px rgba(23, 33, 63, 0.15);
+    --shadow-focus: 0 0 0 4px rgba(154, 197, 219, 0.24);
+    --shadow-burgundy: 0 14px 30px rgba(117, 3, 28, 0.18);
+    --radius-card: 8px;
+    --radius-lg: 8px;
+    --radius-md: 8px;
+    --radius-sm: 6px;
+    --radius-pill: 100px;
+    --font-arabic: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Droid Arabic Kufi', 'Segoe UI', system-ui, sans-serif;
+  }
+
+  * {
+    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-arabic);
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+    line-height: 1.6;
+    direction: rtl;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--color-tertiary);
+    color: var(--color-neutral);
+  }
+}
+
+@layer utilities {
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+  
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)];
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(var(--color-primary-light) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
