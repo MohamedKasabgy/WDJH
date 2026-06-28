@@ -56,6 +56,11 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
         xs: "calc(var(--radius) - 6px)",
       },
+      fontFamily: {
+        sans: ["var(--font-body)"],
+        body: ["var(--font-body)"],
+        display: ["var(--font-display)"],
+      },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
       },

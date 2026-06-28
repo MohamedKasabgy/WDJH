@@ -14,6 +14,7 @@ const beneficiaries = [
     ),
     link: '/directory',
     linkText: 'استكشف الشركات',
+    image: '/assets/wjihub/open-workspace.webp',
   },
   {
     title: 'المستثمرون',
@@ -26,6 +27,7 @@ const beneficiaries = [
     ),
     link: '/directory',
     linkText: 'عرض الفرص',
+    image: '/assets/wjihub/reception-main.webp',
   },
   {
     title: 'الطلاب والباحثون',
@@ -38,6 +40,7 @@ const beneficiaries = [
     ),
     link: '/sectors',
     linkText: 'تصفح القطاعات',
+    image: '/assets/wjihub/workspace-quote-wall.webp',
   },
   {
     title: 'الجهات الحكومية والشركاء',
@@ -54,6 +57,7 @@ const beneficiaries = [
     ),
     link: '/matching',
     linkText: 'المطابقة الذكية',
+    image: '/assets/wjihub/reception-alt.webp',
   },
 ];
 
@@ -78,33 +82,35 @@ export default function BeneficiaryCards() {
           {beneficiaries.map((item, i) => (
             <div
               key={i}
-              className="card premium-card p-6 flex flex-col gap-4 animate-fade-up hover-lift group overflow-hidden"
+              className="facility-card card p-3 flex flex-col gap-3 animate-fade-up hover-lift group overflow-hidden"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              <div
-                className="icon-tile transition-transform group-hover:scale-105"
-                style={{ color: 'var(--color-secondary)' }}
-              >
-                {item.icon}
+              <div className="facility-card__image relative z-10">
+                <img src={item.image} alt={item.title} loading="lazy" />
               </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-base mb-2" style={{ color: 'var(--color-primary)' }}>
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(31, 42, 74, 0.6)' }}>
+              <div className="facility-card__panel flex flex-1 flex-col p-4">
+                <div className="mb-3 flex items-center gap-3">
+                  <span className="icon-tile shrink-0" style={{ color: 'var(--color-secondary)' }}>
+                    {item.icon}
+                  </span>
+                  <h3 className="facility-card__title font-bold text-base" style={{ color: 'var(--color-primary)' }}>
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="facility-card__text flex-1 text-sm leading-relaxed" style={{ color: 'rgba(31, 42, 74, 0.6)' }}>
                   {item.description}
                 </p>
+                <Link
+                  to={item.link}
+                  className="facility-card__link mt-4 text-sm font-semibold flex items-center gap-1.5 transition-colors"
+                  style={{ color: 'var(--color-secondary)' }}
+                >
+                  {item.linkText}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </Link>
               </div>
-              <Link
-                to={item.link}
-                className="text-sm font-semibold flex items-center gap-1.5 transition-colors hover:opacity-80"
-                style={{ color: 'var(--color-secondary)' }}
-              >
-                {item.linkText}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
-              </Link>
             </div>
           ))}
         </div>

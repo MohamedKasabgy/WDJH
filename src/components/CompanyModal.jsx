@@ -22,6 +22,13 @@ export default function CompanyModal({ company, onClose }) {
 
   const displayName = company.name || company.nameEn || 'شركة بدون اسم';
   const displayNameEn = company.name && company.nameEn ? company.nameEn : '';
+  const initials = displayName
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(part => part[0])
+    .join('');
+  const founderInitial = (company.founder || displayName || '?')[0];
 
   const handleCopyContact = () => {
     if (company.contact) {
@@ -77,10 +84,16 @@ export default function CompanyModal({ company, onClose }) {
                 className="relative w-14 h-14 rounded-lg flex items-center justify-center shrink-0 overflow-hidden shadow-sm"
               style={{ background: 'linear-gradient(135deg, var(--color-soft), #fff)', border: '1px solid var(--color-border)' }}
             >
-              <span className="absolute w-12 h-12 petal-mark opacity-75" />
-              <span className="relative text-xl font-bold" style={{ color: 'var(--color-secondary)' }}>
-                {(company.name || company.nameEn || '?')[0]}
-              </span>
+              {company.logo ? (
+                <img src={company.logo} alt={displayName} className="relative z-10 max-h-11 max-w-11 object-contain" />
+              ) : (
+                <>
+                  <span className="absolute w-12 h-12 petal-mark opacity-75" />
+                  <span className="relative text-xl font-bold" style={{ color: 'var(--color-secondary)' }}>
+                    {initials || displayName[0]}
+                  </span>
+                </>
+              )}
             </div>
             <div className="flex-1 min-w-0 pt-1">
               <h2 className="font-bold text-xl" style={{ color: 'var(--color-neutral)' }}>
@@ -106,6 +119,46 @@ export default function CompanyModal({ company, onClose }) {
               <span className="badge badge-burgundy">{getStageLabel(company.stage)}</span>
             )}
           </div>
+
+          {(company.founder || company.founderImage) && (
+            <div
+              className="relative mb-6 flex items-center gap-4 rounded-lg p-4 overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(238,241,255,0.9), rgba(255,255,255,0.92))',
+                border: '1px solid rgba(154, 197, 219, 0.26)',
+              }}
+            >
+              <div
+                className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg shadow-sm"
+                style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))' }}
+              >
+                {company.founderImage ? (
+                  <img
+                    src={company.founderImage}
+                    alt={company.founder || 'صورة المؤسس'}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <span className="flex h-full w-full items-center justify-center text-xl font-bold text-white">
+                    {founderInitial}
+                  </span>
+                )}
+              </div>
+              <div className="min-w-0">
+                <span className="text-[11px] font-semibold" style={{ color: 'rgba(31, 42, 74, 0.5)' }}>
+                  المؤسس
+                </span>
+                <h3 className="text-sm font-bold" style={{ color: 'var(--color-primary)' }}>
+                  {safeValue(company.founder)}
+                </h3>
+                {company.founderRole && (
+                  <p className="text-xs mt-1" style={{ color: 'rgba(31, 42, 74, 0.58)' }}>
+                    {company.founderRole}
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Details Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">

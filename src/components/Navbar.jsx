@@ -29,68 +29,70 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: isScrolled ? 'rgba(31, 42, 74, 0.94)' : 'rgba(31, 42, 74, 0.9)',
+        background: isScrolled
+          ? 'linear-gradient(135deg, rgba(23, 33, 63, 0.86), rgba(31, 42, 74, 0.82) 62%, rgba(117, 3, 28, 0.36))'
+          : 'linear-gradient(135deg, rgba(23, 33, 63, 0.78), rgba(31, 42, 74, 0.74) 62%, rgba(117, 3, 28, 0.28))',
         backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)',
         borderBottom: '1px solid rgba(255,255,255,0.12)',
-        boxShadow: isScrolled ? '0 16px 38px rgba(15, 21, 37, 0.22)' : '0 1px 0 rgba(255,255,255,0.06)',
+        boxShadow: isScrolled ? '0 18px 46px rgba(15, 21, 37, 0.24)' : '0 1px 0 rgba(255,255,255,0.06)',
       }}
     >
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-l from-[var(--color-tertiary)] via-[var(--color-secondary)] to-transparent opacity-70" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <span className="absolute right-[8%] top-2 h-20 w-40 rounded-full bg-[var(--color-tertiary)] opacity-10 blur-3xl" />
+        <span className="absolute left-[18%] top-1 h-16 w-36 rounded-full bg-[var(--color-secondary)] opacity-20 blur-3xl" />
+      </div>
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="relative flex items-center justify-between h-16 lg:h-20 gap-3">
           {/* Brand */}
-          <Link to="/" className="flex items-center" aria-label="وادي جدة للابتكار">
-            <img
-              src="/logo-white.png"
-              alt="وادي جدة للابتكار - Wadi Jeddah Innovation Hub"
-              className="h-10 lg:h-12 object-contain"
-            />
+          <Link to="/" className="flex shrink-0 items-center rounded-lg px-1 py-1 transition-colors hover:bg-white/5" aria-label="الصفحة الرئيسية">
+            <span className="relative flex h-12 w-16 shrink-0 items-center justify-center rounded-lg border border-white/[0.14] bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] lg:h-14 lg:w-20">
+              <img
+                src="/logo-white.png"
+                alt="الشعار الرسمي"
+                className="max-h-10 max-w-14 object-contain lg:max-h-12 lg:max-w-[4.5rem]"
+              />
+            </span>
           </Link>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 rounded-lg border border-white/10 bg-white/[0.055] p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
             {navLinks.map(link => (
               <Link
                 key={link.to}
                 to={link.to}
-                className="relative px-4 py-2 text-sm font-medium transition-colors rounded-lg group overflow-hidden"
+                className={`nav-link-premium relative overflow-hidden rounded-lg px-4 py-2.5 text-sm font-medium transition-colors group ${location.pathname === link.to ? 'is-active' : ''}`}
                 style={{
                   color: location.pathname === link.to ? '#fff' : 'rgba(255,255,255,0.7)',
-                  background: location.pathname === link.to ? 'rgba(255,255,255,0.075)' : 'transparent',
+                  background: location.pathname === link.to ? 'rgba(255,255,255,0.095)' : 'transparent',
                 }}
               >
                 <span className="relative z-10">{link.label}</span>
-                <span
-                  className="absolute bottom-1 left-3 right-3 h-0.5 rounded-full transition-all duration-300 origin-center group-hover:opacity-100 group-hover:scale-x-100"
-                  style={{ 
-                    background: 'linear-gradient(90deg, var(--color-secondary), var(--color-tertiary))',
-                    opacity: location.pathname === link.to ? 1 : 0,
-                    transform: location.pathname === link.to ? 'scaleX(1)' : 'scaleX(0)',
-                    boxShadow: location.pathname === link.to ? '0 0 18px rgba(117, 3, 28, 0.55)' : 'none',
-                  }}
-                />
-                <span className="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/10 transition-colors" />
+                <span className="absolute inset-0 rounded-lg bg-white/0 transition-colors group-hover:bg-white/10" />
+                <span className="absolute inset-0 rounded-lg opacity-0 transition-opacity group-hover:opacity-100" style={{ boxShadow: 'inset 0 0 0 1px rgba(154, 197, 219, 0.16), 0 0 22px rgba(154, 197, 219, 0.12)' }} />
               </Link>
             ))}
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <Link
               to="/directory"
-              className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-all hover-lift"
-              style={{ background: 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark))', boxShadow: 'var(--shadow-burgundy)' }}
+              className="hidden items-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 sm:flex"
+              style={{
+                background: 'linear-gradient(135deg, var(--color-secondary), #8f0422)',
+                boxShadow: '0 14px 32px rgba(117, 3, 28, 0.32), inset 0 1px 0 rgba(255,255,255,0.18)',
+                border: '1px solid rgba(255,255,255,0.13)',
+              }}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
-              </svg>
               استكشف الآن
             </Link>
 
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.12] bg-white/[0.07] text-white/80 transition-colors hover:bg-white/[0.12] hover:text-white lg:hidden"
               aria-label="فتح القائمة"
             >
               {mobileMenuOpen ? (
@@ -111,7 +113,7 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div
           className="lg:hidden border-t border-white/10 animate-fade-in"
-          style={{ background: 'rgba(31, 42, 74, 0.98)', backdropFilter: 'blur(12px)' }}
+          style={{ background: 'linear-gradient(180deg, rgba(23, 33, 63, 0.99), rgba(31, 42, 74, 0.99))', backdropFilter: 'blur(16px)' }}
         >
           <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
             {navLinks.map(link => (
@@ -135,14 +137,10 @@ export default function Navbar() {
             ))}
             <Link
               to="/directory"
-              className="mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-white"
+              className="mt-2 flex items-center justify-center px-4 py-3 rounded-lg text-sm font-semibold text-white"
               style={{ background: 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark))' }}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
-              </svg>
-              استكشف الشركات
+              استكشف الآن
             </Link>
           </div>
         </div>

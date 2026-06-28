@@ -173,9 +173,9 @@ export default function Matching() {
       </div>
 
       {/* Results */}
-      <div className="container mx-auto px-4 lg:px-8 pb-16">
+      <div className="container mx-auto px-4 lg:px-8 pb-24 lg:pb-28">
         {!hasQuery && !submitted && (
-          <div className="card premium-card p-10 text-center max-w-lg mx-auto overflow-hidden">
+          <div className="interactive-card card premium-card p-10 text-center max-w-lg mx-auto overflow-hidden">
             <div className="contour-field" />
             <div
               className="relative w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4"
@@ -197,7 +197,7 @@ export default function Matching() {
         )}
 
         {submitted && hasQuery && matches.length === 0 && (
-          <div className="card premium-card p-10 text-center max-w-lg mx-auto overflow-hidden">
+          <div className="interactive-card card premium-card p-10 text-center max-w-lg mx-auto overflow-hidden">
             <div className="contour-field" />
             <div
               className="relative w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4"
@@ -240,7 +240,7 @@ export default function Matching() {
                 return (
                   <div
                     key={company.id}
-                    className="card premium-card p-5 flex flex-col gap-4 animate-fade-up hover-lift group overflow-hidden"
+                    className="interactive-card card premium-card p-5 flex flex-col gap-4 animate-fade-up hover-lift group overflow-hidden"
                     style={{ 
                       animationDelay: `${i * 0.08}s`,
                     }}

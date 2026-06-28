@@ -12,7 +12,7 @@ export default function Hero() {
         <div className="curved-stroke right-[5%] top-28 rotate-12 opacity-70" />
         <div className="curved-stroke left-[7%] bottom-20 -rotate-12 opacity-60" />
         <div className="absolute top-[14%] right-[8%] w-72 h-72 rounded-full blur-3xl opacity-25 animate-soft-float" style={{ background: 'var(--color-tertiary)' }} />
-        <div className="absolute top-[25%] left-[8%] w-80 h-80 rounded-full blur-3xl opacity-15 animate-soft-float" style={{ background: 'var(--color-secondary)' }} />
+        <div className="absolute top-[25%] left-[8%] w-80 h-80 rounded-full blur-3xl opacity-[0.15] animate-soft-float" style={{ background: 'var(--color-secondary)' }} />
         <div className="absolute bottom-[12%] right-[42%] w-56 h-56 rounded-full blur-3xl opacity-20 animate-slow-drift" style={{ background: 'var(--color-primary)' }} />
         <span className="absolute top-32 left-[21%] w-3 h-3 rounded-full animate-float" style={{ background: 'var(--color-secondary)', opacity: 0.42 }} />
         <span className="absolute bottom-36 right-[22%] w-2 h-2 rounded-full animate-float-slow" style={{ background: 'var(--color-tertiary)', opacity: 0.72 }} />
@@ -66,12 +66,15 @@ export default function Hero() {
 
           <div className="relative min-h-[420px] lg:min-h-[520px] animate-fade-up stagger-5">
             <div className="absolute inset-4 rounded-lg blur-3xl opacity-45 animate-pulse-glow" style={{ background: 'radial-gradient(circle, rgba(154,197,219,0.75), rgba(117,3,28,0.16) 45%, transparent 70%)' }} />
-            <div className="relative h-full min-h-[420px] rounded-lg overflow-hidden border border-white/70 shadow-[0_34px_90px_rgba(23,33,63,0.22)]" style={{ background: 'linear-gradient(140deg, var(--color-primary), #111B36 58%, var(--color-secondary-dark))' }}>
+            <div
+              className="wjih-image-surface wjih-parallax relative h-full min-h-[420px] rounded-lg overflow-hidden border border-white/70 shadow-[0_34px_90px_rgba(23,33,63,0.22)]"
+              style={{ '--wjih-image': "url('/assets/wjihub/reception-main.webp')" }}
+            >
               <div className="absolute inset-0 opacity-35">
                 <div className="wadi-pattern" />
               </div>
               <div className="absolute -right-12 top-10 w-48 h-48 rounded-lg rotate-12 opacity-20" style={{ background: 'var(--color-tertiary)' }} />
-              <div className="absolute -left-8 bottom-12 w-40 h-40 rounded-lg -rotate-12 opacity-15" style={{ background: 'var(--color-secondary)' }} />
+              <div className="absolute -left-8 bottom-12 w-40 h-40 rounded-lg -rotate-12 opacity-[0.15]" style={{ background: 'var(--color-secondary)' }} />
 
               <svg className="absolute inset-0 w-full h-full" viewBox="0 0 520 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <defs>
@@ -120,8 +123,7 @@ export default function Hero() {
                 </g>
               </svg>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,33,63,0.86)] via-transparent to-transparent" />
-              <div className="absolute bottom-0 right-0 left-0 p-7 lg:p-9">
+              <div className="absolute bottom-0 right-0 left-0 z-10 p-7 lg:p-9">
                 <div className="max-w-md">
                   <span className="badge badge-sky mb-3">تحليل المنظومة</span>
                   <h3 className="text-2xl lg:text-3xl font-bold text-white mb-3">شبكة فرص مترابطة</h3>

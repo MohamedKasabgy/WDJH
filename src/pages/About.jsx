@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { companies } from '../data/companies';
 import { getUniqueValues } from '../utils/companyUtils';
+import ServiceModal from '../components/ServiceModal';
 
 const services = [
   {
@@ -133,7 +135,96 @@ const services = [
   },
 ];
 
+const facilityVisuals = {
+  'مساحات عمل مشتركة': {
+    image: '/assets/wjihub/open-workspace.webp',
+    description: 'مساحات مرنة مصممة للعمل اليومي والتواصل بين رواد الأعمال.',
+    details: 'توفر مساحات العمل المشتركة بيئة يومية مهيأة للتركيز والتعاون، مع سهولة الوصول إلى مرافق المجمع والخدمات المساندة وفرص التعارف داخل المجتمع الريادي.',
+    benefits: ['بيئة عمل محفزة', 'فرص تواصل', 'سهولة الوصول للخدمات'],
+    suitableFor: ['المؤسسون الأفراد', 'الفرق الصغيرة', 'العاملون عن بعد'],
+  },
+  'مكاتب خاصة': {
+    image: '/assets/wjihub/reception-alt.webp',
+    description: 'بيئة هادئة ومجهزة للفرق التي تحتاج خصوصية واستقرارًا.',
+    details: 'تمنح المكاتب الخاصة الفرق مساحة ثابتة ومنظمة داخل بيئة ريادية، بما يساعدها على إدارة أعمالها اليومية مع الحفاظ على الخصوصية والقرب من مجتمع الابتكار.',
+    benefits: ['مساحة ثابتة', 'خصوصية أعلى', 'قرب من مجتمع الأعمال'],
+    suitableFor: ['الشركات الناشئة', 'فرق المنتجات', 'الشركات في مرحلة النمو'],
+  },
+  'قاعات اجتماعات': {
+    image: '/assets/wjihub/workspace-quote-wall.webp',
+    description: 'قاعات عملية لعقد الاجتماعات والعروض وورش التفكير.',
+    details: 'قاعات مصممة لاستضافة الاجتماعات الرسمية، جلسات العصف الذهني، عروض المستثمرين، وورش التفكير ضمن بيئة منظمة ومهنية.',
+    benefits: ['تجربة مهنية', 'تجهيزات مناسبة', 'بيئة منظمة'],
+    suitableFor: ['اجتماعات الفرق', 'عروض المستثمرين', 'ورش العمل'],
+  },
+  'مساحات فعاليات وورش عمل': {
+    image: '/assets/wjihub/reception-main.webp',
+    description: 'مساحات مناسبة للفعاليات واللقاءات وبناء المجتمع الريادي.',
+    details: 'تدعم مساحات الفعاليات تنظيم اللقاءات الريادية، البرامج التدريبية، ورش العمل، وجلسات المجتمع التي تعزز تبادل الخبرات بين رواد الأعمال.',
+    benefits: ['تنظيم مرن', 'حضور مجتمعي', 'تجربة ملائمة للورش'],
+    suitableFor: ['الفعاليات الريادية', 'البرامج التدريبية', 'لقاءات المجتمع'],
+  },
+  'إنترنت عالي السرعة': {
+    image: '/assets/wjihub/open-workspace.webp',
+    description: 'اتصال موثوق يدعم سير العمل والتجارب الرقمية بسلاسة.',
+    details: 'اتصال سريع ومستقر يساعد الفرق على تشغيل أدواتها السحابية، الاجتماعات المرئية، التجارب الرقمية، والعمليات اليومية دون تعطل غير ضروري.',
+    benefits: ['اتصال مستقر', 'دعم العمل السحابي', 'تجربة رقمية سلسة'],
+    suitableFor: ['فرق التقنية', 'الشركات الرقمية', 'فرق التشغيل'],
+  },
+  'دعم تقني وفني': {
+    image: '/assets/wjihub/workspace-quote-wall.webp',
+    description: 'دعم مستمر يساعد الفرق على التركيز على النمو والتطوير.',
+    details: 'يوفر الدعم التقني والفني مساندة عملية للتعامل مع الاحتياجات التشغيلية داخل المجمع، بما يحافظ على استمرارية العمل ويرفع كفاءة التجربة اليومية.',
+    benefits: ['حلول أسرع', 'استمرارية تشغيل', 'دعم يومي منظم'],
+    suitableFor: ['الشركات المحتضنة', 'الفرق التشغيلية', 'منظمو الفعاليات'],
+  },
+  'نظام أمني شامل': {
+    image: '/assets/wjihub/reception-main.webp',
+    description: 'بيئة آمنة ومنظمة تضمن راحة الشركات والزوار.',
+    details: 'يعزز النظام الأمني الشامل الثقة داخل بيئة العمل من خلال تنظيم الدخول، حماية المرافق، وتوفير تجربة آمنة للشركات والزوار.',
+    benefits: ['راحة واطمئنان', 'تنظيم الدخول', 'حماية المرافق'],
+    suitableFor: ['الشركات المقيمة', 'الزوار', 'منظمو اللقاءات'],
+  },
+  'دخول على مدار الساعة': {
+    image: '/assets/wjihub/reception-alt.webp',
+    description: 'مرونة في الوصول تناسب إيقاع العمل الريادي المتغير.',
+    details: 'يتيح الدخول على مدار الساعة مرونة أكبر للفرق التي تعمل وفق جداول مختلفة أو تحتاج إلى متابعة أعمالها خارج أوقات العمل التقليدية.',
+    benefits: ['مرونة عالية', 'استجابة لإيقاع الفرق', 'استمرارية العمل'],
+    suitableFor: ['فرق التقنية', 'المؤسسون', 'فرق الإطلاق والتشغيل'],
+  },
+  'مجتمع ريادي': {
+    image: '/assets/wjihub/open-workspace.webp',
+    description: 'شبكة من المؤسسين والمبتكرين والجهات الداعمة داخل مكان واحد.',
+    details: 'يساعد المجتمع الريادي على بناء علاقات عملية بين المؤسسين والمبتكرين والشركاء، ويفتح فرصًا للتعاون والتعلم وتبادل الخبرات.',
+    benefits: ['فرص تعارف', 'تبادل خبرات', 'تعاون وشراكات'],
+    suitableFor: ['رواد الأعمال', 'المبتكرون', 'الشركاء الداعمون'],
+  },
+  'التصوير والطباعة': {
+    image: '/assets/wjihub/workspace-quote-wall.webp',
+    description: 'خدمات مساندة للمواد والعروض والاحتياجات التشغيلية اليومية.',
+    details: 'تساند خدمات التصوير والطباعة احتياجات الفرق اليومية، من تجهيز المستندات والمواد التعريفية إلى دعم العروض والاجتماعات.',
+    benefits: ['خدمات يومية', 'تجهيز مواد', 'دعم للاجتماعات'],
+    suitableFor: ['فرق الأعمال', 'منظمو الورش', 'فرق التسويق'],
+  },
+  'خزائن شخصية': {
+    image: '/assets/wjihub/reception-alt.webp',
+    description: 'تفاصيل عملية تحفظ أغراض المستخدمين داخل بيئة العمل.',
+    details: 'توفر الخزائن الشخصية مساحة حفظ عملية للمستخدمين، بما يجعل تجربة العمل اليومية أكثر ترتيبًا وراحة داخل المجمع.',
+    benefits: ['حفظ الأغراض', 'راحة يومية', 'تنظيم أفضل'],
+    suitableFor: ['المستخدمون اليوميون', 'أصحاب العضويات', 'فرق العمل المشتركة'],
+  },
+  'منطقة قهوة': {
+    image: '/assets/wjihub/reception-main.webp',
+    description: 'مساحة غير رسمية للقاءات السريعة وبناء العلاقات.',
+    details: 'تمنح منطقة القهوة مساحة اجتماعية خفيفة للقاءات السريعة، المحادثات العفوية، وبناء العلاقات بين أعضاء المجتمع.',
+    benefits: ['لقاءات غير رسمية', 'بناء علاقات', 'استراحة مريحة'],
+    suitableFor: ['أعضاء المجتمع', 'الزوار', 'فرق العمل'],
+  },
+};
+
 export default function About() {
+  const [selectedService, setSelectedService] = useState(null);
+  const totalCompanies = companies.length;
   const startupCount = companies.filter(c => c.type === 'شركة ناشئة').length;
   const categoryCount = getUniqueValues(companies, 'mainCategory').length;
 
@@ -162,31 +253,99 @@ export default function About() {
 
       <div className="container mx-auto px-4 lg:px-8 pb-16">
         {/* About Content */}
-        <div className="card premium-card p-6 lg:p-10 mb-10 relative overflow-hidden animate-fade-up" style={{ animationDelay: '100ms' }}>
+        <div className="about-hero-panel p-6 lg:p-10 mb-10 relative overflow-hidden animate-fade-up" style={{ animationDelay: '100ms' }}>
           {/* Subtle bg pattern */}
           <div className="absolute inset-0 pattern-dots opacity-30" />
           
-          <div className="max-w-3xl relative z-10 mx-auto text-center">
-            <p className="text-base lg:text-lg leading-relaxed mb-8 font-medium" style={{ color: 'var(--color-primary)' }}>
-              بيئة ريادية توفر لرواد الأعمال والمبتكرين الاستفادة من مجموعة مختلفة من الخدمات، وتتيح فرصة للتعرف على البرامج والأنشطة الريادية التي تسهم في تسريع نمو الشركات الناشئة بمدينة جدة.
-            </p>
+          <div className="relative z-10 grid items-stretch gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <div
+              className="wjih-image-surface relative min-h-[260px] overflow-hidden rounded-lg border border-white/60 shadow-[0_24px_60px_rgba(23,33,63,0.16)]"
+              style={{ '--wjih-image': "url('/assets/wjihub/open-workspace.webp')" }}
+            >
+              <div className="absolute bottom-0 right-0 left-0 z-10 p-5">
+                <span className="badge badge-sky mb-3">WJIH</span>
+                <h3 className="text-xl font-bold text-white">مساحات عمل وهوية مؤسسية</h3>
+                <p className="mt-2 text-xs leading-6 text-white/75">
+                  مساحة مصممة لاحتضان الشركات الناشئة والمبتكرين ضمن بيئة عمل متكاملة.
+                </p>
+              </div>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="p-6 rounded-lg flex flex-col items-center justify-center border border-white/50 shadow-sm glass-panel hover-lift">
-                <span className="text-3xl lg:text-4xl font-bold block mb-2 text-gradient">{startupCount}</span>
-                <span className="text-sm font-semibold" style={{ color: 'rgba(31, 42, 74, 0.7)' }}>شركة ناشئة</span>
-              </div>
-              <div className="p-6 rounded-lg flex flex-col items-center justify-center border border-white/50 shadow-sm glass-panel hover-lift">
-                <span className="text-3xl lg:text-4xl font-bold block mb-2 text-gradient">{categoryCount}</span>
-                <span className="text-sm font-semibold" style={{ color: 'rgba(31, 42, 74, 0.7)' }}>قطاعات رئيسية</span>
-              </div>
-              <div className="p-6 rounded-lg flex flex-col items-center justify-center border border-white/50 shadow-sm glass-panel hover-lift">
-                <span className="text-3xl lg:text-4xl font-bold block mb-2 text-gradient">{services.length}</span>
-                <span className="text-sm font-semibold" style={{ color: 'rgba(31, 42, 74, 0.7)' }}>خدمة متاحة</span>
+            <div className="flex flex-col justify-center">
+              <span className="section-kicker mb-2">مجمع وادي جدة للابتكار</span>
+              <p className="text-base lg:text-lg leading-relaxed mb-8 font-medium" style={{ color: 'var(--color-primary)' }}>
+                بيئة ريادية توفر لرواد الأعمال والمبتكرين الاستفادة من مجموعة مختلفة من الخدمات، وتتيح فرصة للتعرف على البرامج والأنشطة الريادية التي تسهم في تسريع نمو الشركات الناشئة بمدينة جدة.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                <div className="about-stat-tile p-5 rounded-lg flex flex-col items-center justify-center border border-white/50 shadow-sm glass-panel">
+                  <span className="text-3xl lg:text-4xl font-bold block mb-2 text-gradient">{totalCompanies}</span>
+                  <span className="text-sm font-semibold" style={{ color: 'rgba(31, 42, 74, 0.7)' }}>إجمالي الشركات</span>
+                </div>
+                <div className="about-stat-tile p-5 rounded-lg flex flex-col items-center justify-center border border-white/50 shadow-sm glass-panel">
+                  <span className="text-3xl lg:text-4xl font-bold block mb-2 text-gradient">{startupCount}</span>
+                  <span className="text-sm font-semibold" style={{ color: 'rgba(31, 42, 74, 0.7)' }}>شركة ناشئة</span>
+                </div>
+                <div className="about-stat-tile p-5 rounded-lg flex flex-col items-center justify-center border border-white/50 shadow-sm glass-panel">
+                  <span className="text-3xl lg:text-4xl font-bold block mb-2 text-gradient">{categoryCount}</span>
+                  <span className="text-sm font-semibold" style={{ color: 'rgba(31, 42, 74, 0.7)' }}>قطاعات رئيسية</span>
+                </div>
+                <div className="about-stat-tile p-5 rounded-lg flex flex-col items-center justify-center border border-white/50 shadow-sm glass-panel">
+                  <span className="text-3xl lg:text-4xl font-bold block mb-2 text-gradient">{services.length}</span>
+                  <span className="text-sm font-semibold" style={{ color: 'rgba(31, 42, 74, 0.7)' }}>خدمة متاحة</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Community & Partnerships */}
+        <section className="mb-10 grid grid-cols-1 gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <div
+            className="wjih-image-surface wjih-parallax relative min-h-[360px] overflow-hidden rounded-lg border border-white/60 shadow-[0_28px_70px_rgba(23,33,63,0.18)] animate-fade-up"
+            style={{ '--wjih-image': "url('/assets/wjihub/workspace-quote-wall.webp')" }}
+          >
+            <div className="absolute inset-0 z-10 flex items-end p-6 lg:p-8">
+              <div className="max-w-xl">
+                <span className="badge badge-sky mb-3">عن المجتمع والشراكات</span>
+                <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">
+                  منظومة تجمع الشركات الناشئة والمبتكرين والشركاء
+                </h2>
+                <p className="text-sm leading-7 text-white/78">
+                  تعمل وادي جدة على بناء منظومة ريادية متكاملة تربط الشركات الناشئة بالمبتكرين والجهات الداعمة والشراكات النوعية، بما يخلق بيئة عملية للنمو وتبادل الخبرات.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="interactive-card card premium-card overflow-hidden p-6 animate-fade-up" style={{ animationDelay: '120ms' }}>
+            <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-[var(--color-secondary)] via-[var(--color-tertiary)] to-[var(--color-primary)]" />
+            <div className="relative z-10">
+              <div className="mb-5 flex items-center gap-4">
+                <span className="flex h-14 w-20 items-center justify-center rounded-lg border border-[rgba(31,42,74,0.1)] bg-white shadow-sm">
+                  <img src="/assets/wjihub/cic-logo.webp" alt="CIC" className="max-h-9 max-w-16 object-contain" />
+                </span>
+                <div>
+                  <h3 className="text-lg font-bold" style={{ color: 'var(--color-primary)' }}>
+                    تعاون يعزز بيئة الابتكار
+                  </h3>
+                  <p className="text-xs font-semibold" style={{ color: 'rgba(31,42,74,0.5)' }}>
+                    CIC ضمن منظومة الشراكات والمجتمع
+                  </p>
+                </div>
+              </div>
+              <p className="text-sm leading-7" style={{ color: 'rgba(31,42,74,0.68)' }}>
+                يبرز التعاون مع CIC ضمن الجهود الهادفة إلى تعزيز بيئة الابتكار وربط رواد الأعمال بالفرص والمساحات والخدمات المناسبة لنموهم، دون أن يحل محل هوية وادي جدة الرئيسية.
+              </p>
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                <span className="premium-chip justify-center">شراكات نوعية</span>
+                <span className="premium-chip justify-center">بيئة نمو</span>
+                <span className="premium-chip justify-center">فرص مجتمعية</span>
+                <span className="premium-chip justify-center">مساحات عمل</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Services */}
         <div>
@@ -203,25 +362,37 @@ export default function About() {
             {services.map((service, i) => (
               <div
                 key={i}
-                className="card premium-card p-5 flex flex-col items-center text-center gap-4 animate-fade-up hover-lift border-b-2 group overflow-hidden"
-                style={{ animationDelay: `${200 + (i * 50)}ms`, borderBottomColor: 'transparent' }}
+                className="facility-card facility-card--icon card animate-fade-up hover-lift group overflow-hidden"
+                style={{ animationDelay: `${200 + (i * 50)}ms` }}
               >
-                <div
-                  className="icon-tile transition-colors group-hover:bg-[var(--color-secondary-light)] group-hover:text-[var(--color-secondary)]"
-                  style={{ color: 'var(--color-primary)' }}
-                >
-                  {service.icon}
+                <div className="facility-card__panel p-4 text-right">
+                  <span className="icon-tile shrink-0" style={{ color: 'var(--color-secondary)' }}>
+                    {service.icon}
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="facility-card__title text-sm font-bold" style={{ color: 'var(--color-primary)' }}>
+                      {service.title}
+                    </h3>
+                    <p className="facility-card__text mt-2 text-xs leading-6" style={{ color: 'rgba(31,42,74,0.62)' }}>
+                      {facilityVisuals[service.title]?.description}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedService({ ...service, ...facilityVisuals[service.title] })}
+                    className="facility-card__link mt-3 inline-flex w-fit cursor-pointer border-0 bg-transparent p-0 text-xs font-bold"
+                    style={{ color: 'var(--color-secondary)' }}
+                  >
+                    اعرف المزيد ←
+                  </button>
                 </div>
-                <span className="text-sm font-bold group-hover:text-[var(--color-secondary)] transition-colors" style={{ color: 'var(--color-primary)' }}>
-                  {service.title}
-                </span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Contact Info */}
-        <div className="mt-10 card premium-card p-6 lg:p-8 overflow-hidden">
+        <div className="interactive-card mt-10 card premium-card p-6 lg:p-8 overflow-hidden">
           <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--color-primary)' }}>
             تواصل معنا
           </h2>
@@ -258,6 +429,13 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      {selectedService && (
+        <ServiceModal
+          service={selectedService}
+          onClose={() => setSelectedService(null)}
+        />
+      )}
     </div>
   );
 }

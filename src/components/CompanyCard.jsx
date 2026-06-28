@@ -18,13 +18,23 @@ export default function CompanyCard({ company, onViewDetails }) {
       <span className="absolute -left-12 top-10 w-32 h-32 rounded-full bg-[var(--color-tertiary-light)] opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-80" />
       {/* Header */}
       <div className="flex items-start gap-4">
-        {/* Placeholder Logo */}
         <div className="relative w-14 h-14 rounded-lg flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 overflow-hidden shadow-sm" style={{ background: 'linear-gradient(135deg, var(--color-soft), #fff)', border: '1px solid rgba(154, 197, 219, 0.42)' }}>
-          <span className="absolute inset-1 petal-mark opacity-75" />
-          <span className="absolute inset-0 bg-gradient-to-br from-white/55 to-transparent" />
-          <span className="relative text-base font-bold" style={{ color: 'var(--color-primary)' }}>
-            {initials || displayName[0]}
-          </span>
+          {company.logo ? (
+            <img
+              src={company.logo}
+              alt={displayName}
+              className="relative z-10 max-h-11 max-w-11 object-contain"
+              loading="lazy"
+            />
+          ) : (
+            <>
+              <span className="absolute inset-1 petal-mark opacity-75" />
+              <span className="absolute inset-0 bg-gradient-to-br from-white/55 to-transparent" />
+              <span className="relative text-base font-bold" style={{ color: 'var(--color-primary)' }}>
+                {initials || displayName[0]}
+              </span>
+            </>
+          )}
         </div>
         
         <div className="flex-1 min-w-0 flex justify-between items-start gap-3">

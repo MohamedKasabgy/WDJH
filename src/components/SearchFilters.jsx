@@ -18,7 +18,7 @@ export default function SearchFilters({
   const hasActiveFilters = filters.sector || filters.category || filters.stage || filters.type || searchQuery;
 
   return (
-    <div className="card premium-card p-4 lg:p-5 flex flex-col gap-4 overflow-hidden shadow-[0_24px_70px_rgba(23,33,63,0.1)]">
+    <div className="directory-search-panel p-4 lg:p-5 flex flex-col gap-4 overflow-hidden">
       <div className="absolute left-4 top-4 w-20 h-20 petal-mark opacity-30 pointer-events-none" />
       <div className="absolute right-8 bottom-4 w-24 h-24 rounded-full blur-2xl opacity-40 pointer-events-none" style={{ background: 'var(--color-tertiary-light)' }} />
       {/* Search Bar */}

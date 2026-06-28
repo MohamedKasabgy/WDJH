@@ -8,7 +8,7 @@ function DonutChart({ data, title }) {
   const colors = ['#1F2A4A', '#75031C', '#9AC5DB', '#17213F', '#8f0422', '#C8E0ED'];
 
   return (
-    <div className="card premium-card p-5 lg:p-6 overflow-hidden">
+    <div className="interactive-card card premium-card p-5 lg:p-6 overflow-hidden">
       <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-[var(--color-secondary)] via-[var(--color-tertiary)] to-[var(--color-primary)]" />
       <div className="contour-field opacity-20" />
       <h3 className="font-bold text-base mb-4" style={{ color: 'var(--color-primary)' }}>
@@ -90,7 +90,7 @@ function BarChart({ data, title }) {
   const colors = ['#1F2A4A', '#75031C', '#9AC5DB', '#17213F', '#8f0422', '#C8E0ED'];
 
   return (
-    <div className="card premium-card p-5 lg:p-6 overflow-hidden">
+    <div className="interactive-card card premium-card p-5 lg:p-6 overflow-hidden">
       <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-[var(--color-primary)] via-[var(--color-tertiary)] to-[var(--color-secondary)]" />
       <h3 className="font-bold text-base mb-4" style={{ color: 'var(--color-primary)' }}>
         {title}
@@ -133,7 +133,7 @@ function StageDistribution({ data, title }) {
   };
 
   return (
-    <div className="card premium-card p-5 lg:p-6 overflow-hidden">
+    <div className="interactive-card card premium-card p-5 lg:p-6 overflow-hidden">
       <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-[var(--color-secondary)] to-[var(--color-primary)]" />
       <h3 className="font-bold text-base mb-4" style={{ color: 'var(--color-primary)' }}>
         {title}
@@ -224,71 +224,108 @@ export default function EcosystemCharts({ companies }) {
         <StageDistribution data={stageData} title="توزيع الشركات حسب المرحلة" />
       </div>
 
-      {/* Interactive Map Placeholder */}
+      {/* Ecosystem Map */}
       <div className="animate-fade-up h-full" style={{ animationDelay: '400ms' }}>
-        <div className="card premium-card p-5 lg:p-6 h-full flex flex-col overflow-hidden">
+        <div className="interactive-card card premium-card p-5 lg:p-6 h-full flex flex-col overflow-hidden">
           <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-[var(--color-tertiary)] via-[var(--color-secondary)] to-[var(--color-primary)]" />
           <h3 className="font-bold text-base mb-4" style={{ color: 'var(--color-primary)' }}>
             خريطة المنظومة
           </h3>
           <div
-            className="rounded-lg overflow-hidden relative flex-1 group hover-lift"
+            className="ecosystem-map-grid rounded-lg overflow-hidden relative flex-1 group hover-lift"
             style={{
-              background: 'linear-gradient(135deg, var(--color-primary), #0f1525 58%, var(--color-secondary-dark))',
-              minHeight: '200px',
+              backgroundColor: 'var(--color-neutral)',
+              minHeight: '310px',
             }}
           >
-            {/* Decorative map-like elements */}
-            <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
-              <svg width="100%" height="100%" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
+            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(31,42,74,0.72)] via-[rgba(23,33,63,0.92)] to-[rgba(117,3,28,0.5)]" />
+            <div className="absolute inset-0 opacity-75 transition-opacity duration-700 group-hover:opacity-100">
+              <svg width="100%" height="100%" viewBox="0 0 520 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <defs>
-                  <pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--color-tertiary)" strokeWidth="0.5" opacity="0.3" />
-                  </pattern>
-                  <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
+                  <radialGradient id="ecosystemGlow" cx="50%" cy="50%" r="50%">
                     <stop offset="0%" stopColor="var(--color-tertiary)" stopOpacity="0.8" />
                     <stop offset="100%" stopColor="var(--color-tertiary)" stopOpacity="0" />
                   </radialGradient>
+                  <linearGradient id="ecosystemLine" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="var(--color-tertiary)" stopOpacity="0.8" />
+                    <stop offset="50%" stopColor="white" stopOpacity="0.24" />
+                    <stop offset="100%" stopColor="var(--color-secondary)" stopOpacity="0.58" />
+                  </linearGradient>
                 </defs>
-                <rect width="100%" height="100%" fill="url(#mapGrid)" />
-                <g fill="white">
-                  <circle cx="100" cy="80" r="3" opacity="0.8" />
-                  <circle cx="100" cy="80" r="10" fill="url(#mapGlow)" opacity="0.5" className="animate-pulse-glow" />
-                  
-                  <circle cx="200" cy="120" r="4" fill="var(--color-tertiary)" />
-                  <circle cx="200" cy="120" r="15" fill="url(#mapGlow)" opacity="0.6" className="animate-pulse-glow" style={{ animationDelay: '1s' }} />
-                  
-                  <circle cx="300" cy="70" r="3" opacity="0.8" />
-                  <circle cx="150" cy="150" r="2.5" opacity="0.6" fill="var(--color-secondary)" />
-                  <circle cx="250" cy="160" r="2" opacity="0.5" />
-                  <circle cx="50" cy="130" r="2" opacity="0.5" />
+
+                <g fill="none" stroke="rgba(238,241,255,0.11)" strokeWidth="1">
+                  <circle cx="260" cy="170" r="122" />
+                  <ellipse cx="260" cy="170" rx="190" ry="88" transform="rotate(-18 260 170)" />
+                  <ellipse cx="260" cy="170" rx="178" ry="82" transform="rotate(28 260 170)" />
                 </g>
-                <g stroke="var(--color-tertiary)" strokeWidth="0.5" opacity="0.4">
-                  <line x1="100" y1="80" x2="200" y2="120" className="trace-line" />
-                  <line x1="200" y1="120" x2="300" y2="70" />
-                  <line x1="100" y1="80" x2="150" y2="150" />
-                  <line x1="150" y1="150" x2="250" y2="160" />
+
+                <g fill="none" stroke="url(#ecosystemLine)" strokeLinecap="round" strokeWidth="1.35">
+                  <path className="trace-line" d="M260 170C218 132 174 104 118 88" />
+                  <path className="trace-line" style={{ animationDelay: '0.4s' }} d="M260 170C308 122 358 90 426 82" />
+                  <path className="trace-line" style={{ animationDelay: '0.8s' }} d="M260 170C206 200 164 236 116 268" />
+                  <path className="trace-line" style={{ animationDelay: '1.2s' }} d="M260 170C314 204 370 238 428 262" />
+                  <path className="trace-line" style={{ animationDelay: '1.6s' }} d="M118 88C210 70 340 70 426 82" opacity="0.48" />
+                  <path className="trace-line" style={{ animationDelay: '2s' }} d="M116 268C226 304 330 304 428 262" opacity="0.45" />
+                </g>
+
+                <g>
+                  {[
+                    [118, 88, 'var(--color-tertiary)', '0s'],
+                    [426, 82, 'var(--color-secondary)', '0.6s'],
+                    [116, 268, 'white', '1.1s'],
+                    [428, 262, 'var(--color-tertiary)', '1.7s'],
+                    [260, 170, 'white', '0.3s'],
+                    [214, 136, 'var(--color-tertiary)', '0.9s'],
+                    [310, 206, 'var(--color-secondary)', '1.4s'],
+                    [184, 220, 'white', '1.9s'],
+                    [352, 134, 'white', '2.3s'],
+                  ].map(([cx, cy, fill, delay]) => (
+                    <g key={`${cx}-${cy}`}>
+                      <circle cx={cx} cy={cy} r="18" fill="url(#ecosystemGlow)" opacity="0.32" className="animate-pulse-glow" style={{ animationDelay: delay }} />
+                      <circle cx={cx} cy={cy} r={cx === 260 ? 7 : 4} fill={fill} opacity="0.96" />
+                    </g>
+                  ))}
                 </g>
               </svg>
             </div>
-            
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)] to-transparent opacity-80" />
-            
-            <div className="relative z-10 flex flex-col items-center justify-center min-h-[200px] p-6 text-center h-full">
+
+            <div className="absolute right-1/2 top-1/2 z-20 -translate-y-1/2 translate-x-1/2">
               <div
-                className="w-12 h-12 rounded-lg flex items-center justify-center mb-3 glass-panel shadow-lg border border-white/10"
-                style={{ color: 'white' }}
+                className="flex h-20 w-20 items-center justify-center rounded-lg border border-white/20 bg-white/[0.12] p-3 shadow-[0_0_42px_rgba(154,197,219,0.38)] backdrop-blur-md"
+                style={{ boxShadow: '0 0 0 1px rgba(154,197,219,0.18), 0 0 44px rgba(154,197,219,0.34)' }}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
+                <img
+                  src="/logo-white.png"
+                  alt="الشعار الرسمي"
+                  className="max-h-14 max-w-16 object-contain"
+                />
               </div>
-              <p className="text-sm font-bold text-white mb-1">
-                نقاط تأثير مترابطة
-              </p>
-              <p className="text-xs max-w-xs text-white/60">
-                قراءة بصرية لعلاقات القطاعات والشركات داخل منظومة الابتكار.
+            </div>
+
+            {[
+              { label: 'الذكاء الاصطناعي', position: 'right-[8%] top-[16%]', color: 'var(--color-tertiary)', delay: '0s' },
+              { label: 'التقنية الحيوية والصحة', position: 'left-[7%] top-[18%]', color: 'var(--color-secondary)', delay: '0.8s' },
+              { label: 'المدن الذكية والتنقل', position: 'right-[7%] bottom-[19%]', color: 'white', delay: '1.2s' },
+              { label: 'شركات الخدمات', position: 'left-[8%] bottom-[18%]', color: 'var(--color-tertiary)', delay: '1.6s' },
+            ].map(item => (
+              <div
+                key={item.label}
+                className={`map-label-float absolute z-20 ${item.position} max-w-[132px] rounded-lg border border-white/[0.14] bg-white/10 px-3 py-2 text-xs font-semibold leading-5 text-white shadow-[0_12px_28px_rgba(0,0,0,0.16)] backdrop-blur-md`}
+                style={{ animationDelay: item.delay }}
+              >
+                <span className="mb-1 block h-1.5 w-8 rounded-full" style={{ background: item.color }} />
+                {item.label}
+              </div>
+            ))}
+
+            <span className="absolute right-[20%] top-[34%] h-2 w-2 rounded-full bg-[var(--color-tertiary)] animate-pulse-glow" />
+            <span className="absolute left-[24%] top-[38%] h-2 w-2 rounded-full bg-white animate-pulse-glow" style={{ animationDelay: '0.9s' }} />
+            <span className="absolute right-[30%] bottom-[24%] h-2 w-2 rounded-full bg-white animate-pulse-glow" style={{ animationDelay: '1.4s' }} />
+            <span className="absolute left-[31%] bottom-[28%] h-2 w-2 rounded-full bg-[var(--color-secondary)] animate-pulse-glow" style={{ animationDelay: '2s' }} />
+
+            <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-[rgba(23,33,63,0.95)] via-[rgba(23,33,63,0.6)] to-transparent px-5 pb-5 pt-16">
+              <p className="max-w-sm text-xs leading-6 text-white/[0.72]">
+                تصور تفاعلي يوضح ترابط القطاعات والشركات داخل منظومة الابتكار.
               </p>
             </div>
           </div>

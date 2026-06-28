@@ -2,6 +2,13 @@ import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { companies } from '../data/companies';
 
+const sectorImages = [
+  '/assets/wjihub/open-workspace.webp',
+  '/assets/wjihub/reception-main.webp',
+  '/assets/wjihub/workspace-quote-wall.webp',
+  '/assets/wjihub/reception-alt.webp',
+];
+
 export default function Sectors() {
   const sectors = useMemo(() => {
     const sectorMap = {};
@@ -63,7 +70,7 @@ export default function Sectors() {
     <div className="min-h-screen" style={{ background: 'var(--color-bg)' }}>
       {/* Header */}
       <div className="pt-24 lg:pt-28 pb-8 section-surface">
-        <div className="wadi-pattern opacity-45" />
+        <div className="wadi-pattern opacity-[0.45]" />
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <h1 className="page-title">القطاعات</h1>
           <p className="page-subtitle">
@@ -82,7 +89,7 @@ export default function Sectors() {
             {mainCategories.map((cat, i) => (
               <div
                 key={i}
-                className="card premium-card p-5 flex items-center gap-4 animate-fade-up hover-lift overflow-hidden"
+                className="interactive-card card premium-card p-5 flex items-center gap-4 animate-fade-up hover-lift overflow-hidden"
                 style={{ animationDelay: `${i * 0.06}s` }}
               >
                 <div
@@ -112,68 +119,63 @@ export default function Sectors() {
           {sectors.map((sector, i) => (
             <div
               key={i}
-              className="card premium-card p-5 lg:p-6 flex flex-col gap-4 animate-fade-up hover-lift overflow-hidden group"
+              className="facility-card card p-3 flex flex-col gap-3 animate-fade-up hover-lift overflow-hidden group"
               style={{ animationDelay: `${i * 0.08}s` }}
             >
               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-[var(--color-secondary)] via-[var(--color-tertiary)] to-[var(--color-primary)] opacity-80" />
-              <div className="flex items-start justify-between gap-3">
-                <div
-                  className="icon-tile shrink-0 transition-transform group-hover:scale-105"
+              <div className="facility-card__image relative z-10">
+                <img src={sectorImages[i % sectorImages.length]} alt={sector.name} loading="lazy" />
+              </div>
+
+              <div className="facility-card__panel flex flex-1 flex-col p-4">
+                <div className="mb-3 flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="icon-tile shrink-0 transition-transform group-hover:scale-105" style={{ color: 'var(--color-secondary)' }}>
+                      {sectorIcons.default}
+                    </span>
+                    <div>
+                      <h3 className="facility-card__title font-bold text-base mb-1" style={{ color: 'var(--color-primary)' }}>
+                        {sector.name}
+                      </h3>
+                      <p className="facility-card__text text-xs" style={{ color: 'rgba(31, 42, 74, 0.5)' }}>
+                        {sector.count} {sector.count === 1 ? 'شركة' : 'شركات'} في هذا القطاع
+                      </p>
+                    </div>
+                  </div>
+                  <span className="facility-card__title text-2xl font-bold" style={{ color: 'var(--color-primary)' }}>
+                    {sector.count}
+                  </span>
+                </div>
+
+                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'var(--color-bg)' }}>
+                  <span
+                    className="block h-full rounded-full animated-bar"
+                    style={{
+                      width: `${Math.min(100, 24 + sector.count * 12)}%`,
+                      background: 'linear-gradient(90deg, var(--color-secondary), var(--color-tertiary))',
+                      animationDelay: `${i * 0.05}s`,
+                    }}
+                  />
+                </div>
+
+                {sector.tags.length > 0 && (
+                  <div className="my-4 flex flex-wrap gap-1.5">
+                    {sector.tags.map((tag, ti) => (
+                      <span key={ti} className="premium-chip">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <Link
+                  to={`/directory?sector=${encodeURIComponent(sector.name)}`}
+                  className="facility-card__link mt-auto text-sm font-bold"
                   style={{ color: 'var(--color-secondary)' }}
                 >
-                  {sectorIcons.default}
-                </div>
-                <span
-                  className="text-2xl font-bold"
-                  style={{ color: 'var(--color-primary)' }}
-                >
-                  {sector.count}
-                </span>
+                  استعرض الشركات ←
+                </Link>
               </div>
-
-              <div>
-                <h3 className="font-bold text-base mb-1" style={{ color: 'var(--color-primary)' }}>
-                  {sector.name}
-                </h3>
-                <p className="text-xs" style={{ color: 'rgba(31, 42, 74, 0.5)' }}>
-                  {sector.count} {sector.count === 1 ? 'شركة' : 'شركات'} في هذا القطاع
-                </p>
-              </div>
-
-              <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'var(--color-bg)' }}>
-                <span
-                  className="block h-full rounded-full animated-bar"
-                  style={{
-                    width: `${Math.min(100, 24 + sector.count * 12)}%`,
-                    background: 'linear-gradient(90deg, var(--color-secondary), var(--color-tertiary))',
-                    animationDelay: `${i * 0.05}s`,
-                  }}
-                />
-              </div>
-
-              {/* Tags */}
-              {sector.tags.length > 0 && (
-                <div className="flex flex-wrap gap-1.5">
-                  {sector.tags.map((tag, ti) => (
-                    <span
-                      key={ti}
-                      className="premium-chip"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              <Link
-                to={`/directory?sector=${encodeURIComponent(sector.name)}`}
-                className="btn btn-primary w-full text-sm mt-auto"
-              >
-                استعرض الشركات
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
-              </Link>
             </div>
           ))}
         </div>

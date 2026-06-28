@@ -68,15 +68,15 @@ export default function StatsCards({ companies }) {
   }, [companies]);
 
   return (
-    <section className="section-sm relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #fff 0%, var(--color-bg) 100%)' }}>
+    <section className="stats-section relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #fff 0%, var(--color-bg) 100%)' }}>
       <div className="wadi-pattern opacity-50" />
       <div className="contour-field opacity-20" />
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="card premium-card p-5 lg:p-6 flex flex-col gap-4 animate-fade-up hover-lift group overflow-hidden"
+              className="stats-card card premium-card animate-fade-up hover-lift group overflow-hidden"
               style={{
                 animationDelay: `${i * 0.1}s`,
                 borderTop: `3px solid ${stat.color}`,
@@ -87,16 +87,16 @@ export default function StatsCards({ companies }) {
                 style={{ background: stat.bgColor }}
               />
               <div
-                className="icon-tile relative transition-transform group-hover:scale-105 duration-300"
+                className="icon-tile stats-card__icon relative transition-transform group-hover:scale-105 duration-300"
                 style={{ color: stat.color }}
               >
                 {stat.icon}
               </div>
-              <div className="relative">
-                <span className="text-2xl lg:text-3xl font-bold block transition-colors group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[var(--color-primary)] group-hover:to-[var(--color-secondary)]" style={{ color: 'var(--color-primary)' }}>
+              <div className="relative text-center">
+                <span className="stat-number text-3xl lg:text-4xl font-black block leading-none transition-colors group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[var(--color-primary)] group-hover:to-[var(--color-secondary)]" style={{ color: 'var(--color-primary)' }}>
                   {stat.value}
                 </span>
-                <span className="text-xs lg:text-sm" style={{ color: 'rgba(31, 42, 74, 0.55)' }}>
+                <span className="mt-2 block text-xs lg:text-sm font-medium" style={{ color: 'rgba(31, 42, 74, 0.62)' }}>
                   {stat.label}
                 </span>
               </div>

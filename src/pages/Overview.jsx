@@ -70,6 +70,14 @@ export default function Overview() {
       featuredCompany: featured,
     };
   }, []);
+  const featuredDisplayName = featuredCompany?.name || featuredCompany?.nameEn || 'شركة';
+  const featuredInitials = featuredDisplayName
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(part => part[0])
+    .join('');
+  const featuredFounderInitial = (featuredCompany?.founder || featuredDisplayName || '?')[0];
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--color-bg)' }}>
@@ -84,11 +92,11 @@ export default function Overview() {
           </p>
 
           {/* KPI Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mb-8">
             {kpis.map((kpi, i) => (
               <div
                 key={i}
-                className="card premium-card p-5 flex flex-col gap-3 animate-fade-up hover-lift group overflow-hidden"
+                className="overview-kpi-card card premium-card animate-fade-up hover-lift group overflow-hidden"
                 style={{
                   animationDelay: `${i * 0.1}s`,
                   borderTop: '3px solid var(--color-secondary)',
@@ -96,22 +104,22 @@ export default function Overview() {
               >
                 <span className="absolute -left-8 -top-8 w-24 h-24 rounded-full bg-[var(--color-tertiary-light)] opacity-0 blur-lg group-hover:opacity-100 transition-opacity" />
                 <div
-                  className="icon-tile relative transition-transform group-hover:scale-105"
+                  className="overview-kpi-card__icon icon-tile relative transition-transform group-hover:scale-105"
                   style={{ color: i % 2 === 0 ? 'var(--color-secondary)' : 'var(--color-primary)' }}
                 >
                   {kpi.icon}
                 </div>
-                <div>
+                <div className="relative min-w-0 text-center">
                   {kpi.isText ? (
-                    <span className="text-sm font-bold block" style={{ color: 'var(--color-primary)' }}>
+                    <span className="overview-kpi-card__value overview-kpi-card__value--text text-sm font-bold block line-clamp-2" style={{ color: 'var(--color-primary)' }}>
                       {kpi.value}
                     </span>
                   ) : (
-                    <span className="text-2xl font-bold block" style={{ color: 'var(--color-primary)' }}>
+                    <span className="overview-kpi-card__value stat-number text-3xl lg:text-4xl font-black block leading-none" style={{ color: 'var(--color-primary)' }}>
                       {kpi.value}
                     </span>
                   )}
-                  <span className="text-xs" style={{ color: 'rgba(31, 42, 74, 0.55)' }}>
+                  <span className="mt-2 block text-xs lg:text-sm font-medium" style={{ color: 'rgba(31, 42, 74, 0.62)' }}>
                     {kpi.label}
                   </span>
                 </div>
@@ -132,7 +140,7 @@ export default function Overview() {
           {/* Side Panel */}
           <div className="flex flex-col gap-5 animate-fade-up" style={{ animationDelay: '300ms' }}>
             {/* Featured Company */}
-            <div className="card premium-card p-5 lg:p-6 hover-lift border-t-4 overflow-hidden" style={{ borderTopColor: 'var(--color-tertiary)' }}>
+            <div className="interactive-card card premium-card p-5 lg:p-6 hover-lift border-t-4 overflow-hidden" style={{ borderTopColor: 'var(--color-tertiary)' }}>
               <div className="wadi-pattern opacity-20" />
               <div className="flex items-center justify-between mb-4 relative">
                 <h3 className="font-bold text-sm" style={{ color: 'var(--color-primary)' }}>
@@ -143,15 +151,24 @@ export default function Overview() {
 
               {featuredCompany && (
                 <div className="flex flex-col gap-4">
-                  {/* Logo Placeholder */}
                   <div
                     className="relative w-16 h-16 rounded-lg flex items-center justify-center mx-auto overflow-hidden"
                     style={{ background: 'var(--color-soft)', border: '1px solid rgba(154, 197, 219, 0.42)' }}
                   >
-                    <span className="absolute inset-1 petal-mark opacity-70" />
-                    <span className="relative text-2xl font-bold" style={{ color: 'var(--color-secondary)' }}>
-                      {(featuredCompany.name || '?')[0]}
-                    </span>
+                    {featuredCompany.logo ? (
+                      <img
+                        src={featuredCompany.logo}
+                        alt={featuredDisplayName}
+                        className="relative z-10 max-h-12 max-w-12 object-contain"
+                      />
+                    ) : (
+                      <>
+                        <span className="absolute inset-1 petal-mark opacity-70" />
+                        <span className="relative text-2xl font-bold" style={{ color: 'var(--color-secondary)' }}>
+                          {featuredInitials || featuredDisplayName[0]}
+                        </span>
+                      </>
+                    )}
                   </div>
 
                   {/* Info */}
@@ -181,6 +198,27 @@ export default function Overview() {
                     {safeValue(featuredCompany.description, 'لا يوجد وصف متاح.')}
                   </p>
 
+                  {(featuredCompany.founder || featuredCompany.founderImage) && (
+                    <div className="flex items-center gap-3 rounded-lg p-3 text-right" style={{ background: 'rgba(238,241,255,0.7)', border: '1px solid rgba(154,197,219,0.22)' }}>
+                      <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg" style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))' }}>
+                        {featuredCompany.founderImage ? (
+                          <img src={featuredCompany.founderImage} alt={featuredCompany.founder || 'صورة المؤسس'} className="h-full w-full object-cover" />
+                        ) : (
+                          <span className="flex h-full w-full items-center justify-center text-base font-bold text-white">
+                            {featuredFounderInitial}
+                          </span>
+                        )}
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-[10px] font-semibold" style={{ color: 'rgba(31,42,74,0.48)' }}>المؤسس</span>
+                        <p className="truncate text-xs font-bold" style={{ color: 'var(--color-primary)' }}>{safeValue(featuredCompany.founder)}</p>
+                        {featuredCompany.founderRole && (
+                          <p className="truncate text-[11px]" style={{ color: 'rgba(31,42,74,0.5)' }}>{featuredCompany.founderRole}</p>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Actions */}
                   <div className="flex flex-col gap-2 pt-3" style={{ borderTop: '1px solid var(--color-border)' }}>
                     <button
@@ -205,7 +243,7 @@ export default function Overview() {
             </div>
 
             {/* Quick Stats */}
-            <div className="card premium-card p-5 lg:p-6 overflow-hidden">
+            <div className="interactive-card card premium-card p-5 lg:p-6 overflow-hidden">
               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-l from-[var(--color-secondary)] via-[var(--color-tertiary)] to-[var(--color-primary)]" />
               <h3 className="font-bold text-sm mb-4" style={{ color: 'var(--color-primary)' }}>
                 إحصائيات سريعة

@@ -1,3 +1,83 @@
+@font-face {
+  font-family: "Thmanyah Serif Display";
+  src: url("/fonts/thmanyah/thmanyahserifdisplay-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Display";
+  src: url("/fonts/thmanyah/thmanyahserifdisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Display";
+  src: url("/fonts/thmanyah/thmanyahserifdisplay-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Display";
+  src: url("/fonts/thmanyah/thmanyahserifdisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Display";
+  src: url("/fonts/thmanyah/thmanyahserifdisplay-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Text";
+  src: url("/fonts/thmanyah/thmanyahseriftext-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Text";
+  src: url("/fonts/thmanyah/thmanyahseriftext-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Text";
+  src: url("/fonts/thmanyah/thmanyahseriftext-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Text";
+  src: url("/fonts/thmanyah/thmanyahseriftext-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Thmanyah Serif Text";
+  src: url("/fonts/thmanyah/thmanyahseriftext-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Brand Colors */
   --color-primary: #1F2A4A;
@@ -7,8 +87,9 @@
   --color-neutral: #17213F;
   --color-bg: #EEF1FF;
   --color-soft: #EEF1FF;
-  --color-surface: #F8F9FF;
-  --color-sand: #9AC5DB;
+  --color-surface: #F7F3F1;
+  --color-warm: #F7F3F1;
+  --color-sand: #F7F3F1;
   --color-border: #E6E7E8;
   --color-white: #FFFFFF;
 
@@ -19,7 +100,7 @@
   --color-secondary-glow: rgba(117, 3, 28, 0.18);
   --color-tertiary-light: rgba(154, 197, 219, 0.2);
   --color-tertiary-glow: rgba(154, 197, 219, 0.34);
-  --color-sand-light: rgba(154, 197, 219, 0.22);
+  --color-sand-light: rgba(247, 243, 241, 0.78);
   --color-primary-hover: #2a3a66;
   --color-secondary-hover: #8f0422;
 
@@ -38,8 +119,9 @@
   --radius-pill: 100px;
 
   /* Typography */
-  --font-arabic: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Droid Arabic Kufi', 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', sans-serif;
+  --font-display: "Thmanyah Serif Display", "IBM Plex Sans Arabic", "Tajawal", "Cairo", serif;
+  --font-body: "Thmanyah Serif Text", "IBM Plex Sans Arabic", "Tajawal", "Cairo", serif;
+  --font-arabic: var(--font-body);
 
   /* Spacing */
   --space-xs: 4px;
