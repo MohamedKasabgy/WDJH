@@ -295,7 +295,7 @@ export default function EcosystemCharts({ companies }) {
                 style={{ boxShadow: '0 0 0 1px rgba(154,197,219,0.18), 0 0 44px rgba(154,197,219,0.34)' }}
               >
                 <img
-                  src="/logo-white.png"
+                  src={`${import.meta.env.BASE_URL}logo-white.png`}
                   alt="الشعار الرسمي"
                   className="max-h-14 max-w-16 object-contain"
                 />

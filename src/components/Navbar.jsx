@@ -49,7 +49,7 @@ export default function Navbar() {
           <Link to="/" className="flex shrink-0 items-center rounded-lg px-1 py-1 transition-colors hover:bg-white/5" aria-label="الصفحة الرئيسية">
             <span className="relative flex h-12 w-16 shrink-0 items-center justify-center rounded-lg border border-white/[0.14] bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] lg:h-14 lg:w-20">
               <img
-                src="/logo-white.png"
+                src={`${import.meta.env.BASE_URL}logo-white.png`}
                 alt="الشعار الرسمي"
                 className="max-h-10 max-w-14 object-contain lg:max-h-12 lg:max-w-[4.5rem]"
               />

@@ -11,12 +11,12 @@ export const companies = [
     founderRole: "المدير التنفيذي",
     companyAge: "سنة واحدة",
     stage: "Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["مركبات كهربائية", "تنقل ذاتي", "ADAS", "مدن ذكية"],
-    logo: "/assets/startups/logos/evinex.png",
-    founderImage: "/assets/startups/founders/evinex.png"
+    logo: "/WDJH/assets/startups/logos/evinex.png",
+    founderImage: "/WDJH/assets/startups/founders/evinex.png"
   },
   {
     id: 2,
@@ -30,12 +30,12 @@ export const companies = [
     founderRole: "المؤسس والرئيس التنفيذي",
     companyAge: "سنتين",
     stage: "Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["تقنية عقارية", "تمويل", "عقار", "تأجير"],
-    logo: "/assets/startups/logos/sariat.png",
-    founderImage: "/assets/startups/founders/sariat.png"
+    logo: "/WDJH/assets/startups/logos/sariat.png",
+    founderImage: "/WDJH/assets/startups/founders/sariat.png"
   },
   {
     id: 3,
@@ -49,12 +49,12 @@ export const companies = [
     founderRole: "المؤسس والرئيس التنفيذي",
     companyAge: "ستة أشهر",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["مطاعم", "مدفوعات", "نقاط بيع", "منيو إلكتروني"],
-    logo: "/assets/startups/logos/matila.png",
-    founderImage: "/assets/startups/founders/matila.png"
+    logo: "/WDJH/assets/startups/logos/matila.png",
+    founderImage: "/WDJH/assets/startups/founders/matila.png"
   },
   {
     id: 4,
@@ -68,12 +68,12 @@ export const companies = [
     founderRole: "المدير التنفيذي",
     companyAge: "سنة واحدة",
     stage: "Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["إعلان رقمي", "DOOH", "مركبات", "تسويق"],
-    logo: "/assets/startups/logos/mediago.png",
-    founderImage: "/assets/startups/founders/mediago.png"
+    logo: "/WDJH/assets/startups/logos/mediago.png",
+    founderImage: "/WDJH/assets/startups/founders/mediago.png"
   },
   {
     id: 5,
@@ -87,12 +87,12 @@ export const companies = [
     founderRole: "المؤسس والمدير التنفيذي",
     companyAge: "أربعة أشهر",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["مواقف ذكية", "تنقل", "مدن ذكية", "عقار"],
-    logo: "/assets/startups/logos/parkinzi.png",
-    founderImage: "/assets/startups/founders/parkinzi.png"
+    logo: "/WDJH/assets/startups/logos/parkinzi.png",
+    founderImage: "/WDJH/assets/startups/founders/parkinzi.png"
   },
   {
     id: 6,
@@ -106,12 +106,12 @@ export const companies = [
     founderRole: "المؤسس والرئيس التنفيذي",
     companyAge: "ستة أشهر",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["سيارات", "صيانة وقائية", "ذكاء اصطناعي", "تشخيص استباقي"],
-    logo: "/assets/startups/logos/live-car.png",
-    founderImage: "/assets/startups/founders/live-car.png"
+    logo: "/WDJH/assets/startups/logos/live-car.png",
+    founderImage: "/WDJH/assets/startups/founders/live-car.png"
   },
   {
     id: 7,
@@ -125,12 +125,12 @@ export const companies = [
     founderRole: "المؤسس والرئيس التنفيذي",
     companyAge: "سنة واحدة",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["قطع غيار", "سيارات", "صيانة", "تجارة إلكترونية"],
-    logo: "/assets/startups/logos/qitea.png",
-    founderImage: "/assets/startups/founders/qitea.png"
+    logo: "/WDJH/assets/startups/logos/qitea.png",
+    founderImage: "/WDJH/assets/startups/founders/qitea.png"
   },
   {
     id: 8,
@@ -139,17 +139,17 @@ export const companies = [
     type: "شركة ناشئة",
     mainCategory: "التقنية الحيوية والصحة",
     sector: "التقنيات الحيوية",
-    description: "شركة سعودية ناشئة متخصصة في تطوير الحلول الحيوية المبتكرة في مجالات الصحة والبيئة. تأسست في 2025 وتتخذ من حاضنة وادي جدة للتقنية مقراً لها، وتسعى للمساهمة في بناء اقتصاد حيوي مستدام يدعم رؤية المملكة 2030.",
+    description: "شركة سعودية ناشئة متخصصة في تطوير الحلول الحيوية المبتكرة في مجالات الصحة والبيئة. تأسست في 2025 وتتخذ من حاضنة مجمع وادي جدة للتقنية مقراً لها، وتسعى للمساهمة في بناء اقتصاد حيوي مستدام يدعم رؤية المملكة 2030.",
     founder: "سلطان الحياني",
     founderRole: "المدير التنفيذي",
     companyAge: "سنتين",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["تقنية حيوية", "صحة", "بيئة", "استدامة"],
-    logo: "/assets/startups/logos/pure-advance.png",
-    founderImage: "/assets/startups/founders/pure-advance.png"
+    logo: "/WDJH/assets/startups/logos/pure-advance.png",
+    founderImage: "/WDJH/assets/startups/founders/pure-advance.png"
   },
   {
     id: 9,
@@ -163,12 +163,12 @@ export const companies = [
     founderRole: "المدير العام",
     companyAge: "سنة واحدة",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["منظفات طبيعية", "سلامة غذائية", "تقنية حيوية", "صحة"],
-    logo: "/assets/startups/logos/floraex.png",
-    founderImage: "/assets/startups/founders/floraex.png"
+    logo: "/WDJH/assets/startups/logos/floraex.png",
+    founderImage: "/WDJH/assets/startups/founders/floraex.png"
   },
   {
     id: 10,
@@ -182,12 +182,12 @@ export const companies = [
     founderRole: "المدير العام",
     companyAge: "خمسة سنوات",
     stage: "Growth",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["مستلزمات طبية", "صحة", "معدات صحية", "توريد"],
-    logo: "/assets/startups/logos/eliteport.png",
-    founderImage: "/assets/startups/founders/eliteport.png"
+    logo: "/WDJH/assets/startups/logos/eliteport.png",
+    founderImage: "/WDJH/assets/startups/founders/eliteport.png"
   },
   {
     id: 11,
@@ -201,12 +201,12 @@ export const companies = [
     founderRole: "الرئيس التنفيذي",
     companyAge: "سنة واحدة",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["تقنية مالية", "مدفوعات", "محاسبة", "ذكاء اصطناعي"],
-    logo: "/assets/startups/logos/qayd.png",
-    founderImage: "/assets/startups/founders/qayd.png"
+    logo: "/WDJH/assets/startups/logos/qayd.png",
+    founderImage: "/WDJH/assets/startups/founders/qayd.png"
   },
   {
     id: 12,
@@ -220,12 +220,12 @@ export const companies = [
     founderRole: "المؤسس والرئيس التنفيذي",
     companyAge: "سنة واحدة",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["ذكاء اصطناعي", "تجارة إلكترونية", "نقاط بيع", "تسويق"],
-    logo: "/assets/startups/logos/platform-tamken.png",
-    founderImage: "/assets/startups/founders/platform-tamken.png"
+    logo: "/WDJH/assets/startups/logos/platform-tamken.png",
+    founderImage: "/WDJH/assets/startups/founders/platform-tamken.png"
   },
   {
     id: 13,
@@ -239,12 +239,12 @@ export const companies = [
     founderRole: "الرئيس التنفيذي",
     companyAge: "أربعة أشهر",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["محاسبة", "ذكاء اصطناعي", "زكاة", "ضريبة"],
-    logo: "/assets/startups/logos/mawrid.png",
-    founderImage: "/assets/startups/founders/mawrid.png"
+    logo: "/WDJH/assets/startups/logos/mawrid.png",
+    founderImage: "/WDJH/assets/startups/founders/mawrid.png"
   },
   {
     id: 14,
@@ -258,12 +258,12 @@ export const companies = [
     founderRole: "المؤسس والرئيس التنفيذي",
     companyAge: "أربعة أشهر",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["ذكاء اصطناعي", "تطوير برمجيات", "بلوك تشين", "تقنية مالية"],
-    logo: "/assets/startups/logos/laibex-innovation-solutions.png",
-    founderImage: "/assets/startups/founders/laibex-innovation-solutions.png"
+    logo: "/WDJH/assets/startups/logos/laibex-innovation-solutions.png",
+    founderImage: "/WDJH/assets/startups/founders/laibex-innovation-solutions.png"
   },
   {
     id: 15,
@@ -277,12 +277,12 @@ export const companies = [
     founderRole: "المؤسس والرئيس التنفيذي",
     companyAge: "أربعة أشهر",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["تسويق", "ذكاء اصطناعي", "تصميم", "إعلانات"],
-    logo: "/assets/startups/logos/adenofit.png",
-    founderImage: "/assets/startups/founders/adenofit.png"
+    logo: "/WDJH/assets/startups/logos/adenofit.png",
+    founderImage: "/WDJH/assets/startups/founders/adenofit.png"
   },
   {
     id: 16,
@@ -296,12 +296,12 @@ export const companies = [
     founderRole: "المدير العام",
     companyAge: "ستة أشهر",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["موارد بشرية", "توظيف", "استشارات", "تدريب"],
-    logo: "/assets/startups/logos/athrflow.png",
-    founderImage: "/assets/startups/founders/athrflow.png"
+    logo: "/WDJH/assets/startups/logos/athrflow.png",
+    founderImage: "/WDJH/assets/startups/founders/athrflow.png"
   },
   {
     id: 17,
@@ -315,12 +315,12 @@ export const companies = [
     founderRole: "المدير التقني",
     companyAge: "سنتين",
     stage: "Growth",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["تعليم", "لغة إنجليزية", "IELTS", "تدريب"],
-    logo: "/assets/startups/logos/tutorings.png",
-    founderImage: "/assets/startups/founders/tutorings.png"
+    logo: "/WDJH/assets/startups/logos/tutorings.png",
+    founderImage: "/WDJH/assets/startups/founders/tutorings.png"
   },
   {
     id: 18,
@@ -334,11 +334,11 @@ export const companies = [
     founderRole: "المدير التنفيذي",
     companyAge: "ثلاث سنوات",
     stage: "Growth",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["استشارات", "محاسبة", "مالية", "منشآت صغيرة"],
-    founderImage: "/assets/startups/founders/abdulrhmin-shabkni-professional-consulting-office.png"
+    founderImage: "/WDJH/assets/startups/founders/abdulrhmin-shabkni-professional-consulting-office.png"
   },
   {
     id: 19,
@@ -352,12 +352,12 @@ export const companies = [
     founderRole: "مالك المكتب",
     companyAge: "تسع سنوات",
     stage: "Growth",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["استشارات ضريبية", "محتوى محلي", "ضريبة", "زكاة"],
-    logo: "/assets/startups/logos/boazer-alatas.png",
-    founderImage: "/assets/startups/founders/boazer-alatas.png"
+    logo: "/WDJH/assets/startups/logos/boazer-alatas.png",
+    founderImage: "/WDJH/assets/startups/founders/boazer-alatas.png"
   },
   {
     id: 20,
@@ -371,12 +371,12 @@ export const companies = [
     founderRole: "المؤسس والرئيس التنفيذي",
     companyAge: "سنة واحدة",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["سياحة", "ثقافة", "تجارب سياحية", "رؤية 2030"],
-    logo: "/assets/startups/logos/easytour.png",
-    founderImage: "/assets/startups/founders/easytour.png"
+    logo: "/WDJH/assets/startups/logos/easytour.png",
+    founderImage: "/WDJH/assets/startups/founders/easytour.png"
   },
   {
     id: 21,
@@ -390,11 +390,11 @@ export const companies = [
     founderRole: "المؤسس والرئيس التنفيذي",
     companyAge: "سنتين",
     stage: "Pre-Seed",
-    location: "وادي جدة",
+    location: "مجمع وادي جدة",
     website: "",
     contact: "",
     tags: ["مشروبات", "ماتشا", "مطبخ سحابي", "أغذية"],
-    logo: "/assets/startups/logos/squido-s-matcha.png",
-    founderImage: "/assets/startups/founders/squido-s-matcha.png"
+    logo: "/WDJH/assets/startups/logos/squido-s-matcha.png",
+    founderImage: "/WDJH/assets/startups/founders/squido-s-matcha.png"
   }
 ];

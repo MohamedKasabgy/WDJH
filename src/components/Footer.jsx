@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const quickLinks = [
-  { to: '/about', label: 'عن وادي جدة' },
+  { to: '/about', label: 'عن مجمع وادي جدة' },
   { to: '/directory', label: 'دليل الشركات' },
   { to: '/sectors', label: 'القطاعات' },
   { to: '/matching', label: 'المطابقة الذكية' },
@@ -32,17 +32,17 @@ export default function Footer() {
       <div className="container relative z-10 mx-auto px-4 pb-12 pt-16 lg:px-8 lg:pb-16 lg:pt-20">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.35fr_0.62fr_0.62fr_0.82fr] lg:gap-10">
           <div className="max-w-xl">
-            <Link to="/" className="mb-5 inline-flex items-center gap-4 rounded-lg p-1 transition-colors hover:bg-white/[0.55]" aria-label="وادي جدة للابتكار">
+            <Link to="/" className="mb-5 inline-flex items-center gap-4 rounded-lg p-1 transition-colors hover:bg-white/[0.55]" aria-label="مجمع وادي جدة للابتكار">
               <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-white/[0.15] bg-[var(--color-primary)] shadow-[0_14px_32px_rgba(23,33,63,0.16)]">
                 <img
-                  src="/logo-white.png"
-                  alt="وادي جدة للابتكار - Wadi Jeddah Innovation Hub"
+                  src={`${import.meta.env.BASE_URL}logo-white.png`}
+                  alt="مجمع وادي جدة للابتكار - Wadi Jeddah Innovation Hub"
                   className="max-h-10 max-w-10 object-contain"
                 />
               </span>
               <span className="flex flex-col">
                 <span className="text-2xl font-bold leading-tight" style={{ color: 'var(--color-neutral)' }}>
-                  وادي جدة
+                  مجمع وادي جدة
                 </span>
                 <span className="text-xs font-semibold" style={{ color: 'rgba(31, 42, 74, 0.55)' }}>
                   Wadi Jeddah Innovation Hub
@@ -155,7 +155,7 @@ export default function Footer() {
               </span>
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-16 items-center justify-center rounded-md bg-white">
-                  <img src="/assets/wjihub/cic-logo.webp" alt="CIC" className="max-h-7 max-w-12 object-contain" />
+                  <img src={`${import.meta.env.BASE_URL}assets/wjihub/cic-logo.webp`} alt="CIC" className="max-h-7 max-w-12 object-contain" />
                 </span>
                 <span className="text-xs leading-5" style={{ color: 'rgba(31,42,74,0.62)' }}>
                   تعاون مجتمعي يعزز بيئة الابتكار.
@@ -167,18 +167,18 @@ export default function Footer() {
 
         <div
           className="wjih-image-surface relative mt-10 min-h-[120px] overflow-hidden rounded-lg border border-white/60"
-          style={{ '--wjih-image': "url('/assets/wjihub/reception-alt.webp')" }}
+          style={{ '--wjih-image': `url('${import.meta.env.BASE_URL}assets/wjihub/reception-alt.webp')` }}
         >
           <div className="relative z-10 flex min-h-[120px] items-end p-5">
             <p className="max-w-lg text-xs leading-6 text-white/75">
-              واجهة رقمية مستوحاة من هوية وادي جدة ومساحات الابتكار والعمل الريادي.
+              واجهة رقمية مستوحاة من هوية مجمع وادي جدة ومساحات الابتكار والعمل الريادي.
             </p>
           </div>
         </div>
 
         <div className="mt-12 border-t border-[rgba(31,42,74,0.1)] pt-7 text-center">
           <p className="text-xs font-medium" style={{ color: 'rgba(31, 42, 74, 0.5)' }}>
-            © 2026 وادي جدة. جميع الحقوق محفوظة.
+            © 2026 مجمع وادي جدة. جميع الحقوق محفوظة.
           </p>
         </div>
       </div>

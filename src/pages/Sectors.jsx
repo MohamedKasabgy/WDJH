@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { companies } from '../data/companies';
 
 const sectorImages = [
-  '/assets/wjihub/open-workspace.webp',
-  '/assets/wjihub/reception-main.webp',
-  '/assets/wjihub/workspace-quote-wall.webp',
-  '/assets/wjihub/reception-alt.webp',
+  `${import.meta.env.BASE_URL}assets/wjihub/open-workspace.webp`,
+  `${import.meta.env.BASE_URL}assets/wjihub/reception-main.webp`,
+  `${import.meta.env.BASE_URL}assets/wjihub/workspace-quote-wall.webp`,
+  `${import.meta.env.BASE_URL}assets/wjihub/reception-alt.webp`,
 ];
 
 export default function Sectors() {
@@ -74,7 +74,7 @@ export default function Sectors() {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <h1 className="page-title">القطاعات</h1>
           <p className="page-subtitle">
-            استعرض الشركات حسب القطاعات الرئيسية في منظومة وادي جدة.
+            استعرض الشركات حسب القطاعات الرئيسية في منظومة مجمع وادي جدة.
           </p>
         </div>
       </div>

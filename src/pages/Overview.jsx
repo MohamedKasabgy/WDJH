@@ -8,7 +8,7 @@ export default function Overview() {
   const [selectedCompany, setSelectedCompany] = useState(null);
 
   const { kpis, topSector, featuredCompany } = useMemo(() => {
-    const totalCompanies = companies.length;
+    const totalCompanies = 22;
     const sectors = getUniqueValues(companies, 'sector');
     const stages = getUniqueValues(companies, 'stage');
 
@@ -88,7 +88,7 @@ export default function Overview() {
           <span className="section-kicker block mb-2">تحليل المنظومة</span>
           <h1 className="page-title">النظام البيئي للابتكار</h1>
           <p className="page-subtitle">
-            نظرة شاملة على الشركات والقطاعات داخل منظومة وادي جدة.
+            نظرة شاملة على الشركات والقطاعات داخل منظومة مجمع وادي جدة.
           </p>
 
           {/* KPI Cards */}

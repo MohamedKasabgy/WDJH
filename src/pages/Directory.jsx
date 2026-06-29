@@ -68,7 +68,7 @@ export default function Directory() {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <h1 className="page-title">دليل الشركات والكيانات</h1>
           <p className="page-subtitle">
-            استكشف منظومة الابتكار في وادي جدة وتعرّف على الشركات حسب القطاع والمرحلة.
+            استكشف منظومة الابتكار في مجمع وادي جدة وتعرّف على الشركات حسب القطاع والمرحلة.
           </p>
 
           <SearchFilters

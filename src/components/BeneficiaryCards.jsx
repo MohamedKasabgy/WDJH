@@ -14,7 +14,7 @@ const beneficiaries = [
     ),
     link: '/directory',
     linkText: 'استكشف الشركات',
-    image: '/assets/wjihub/open-workspace.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/open-workspace.webp`,
   },
   {
     title: 'المستثمرون',
@@ -27,7 +27,7 @@ const beneficiaries = [
     ),
     link: '/directory',
     linkText: 'عرض الفرص',
-    image: '/assets/wjihub/reception-main.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/reception-main.webp`,
   },
   {
     title: 'الطلاب والباحثون',
@@ -40,7 +40,7 @@ const beneficiaries = [
     ),
     link: '/sectors',
     linkText: 'تصفح القطاعات',
-    image: '/assets/wjihub/workspace-quote-wall.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/workspace-quote-wall.webp`,
   },
   {
     title: 'الجهات الحكومية والشركاء',
@@ -57,7 +57,7 @@ const beneficiaries = [
     ),
     link: '/matching',
     linkText: 'المطابقة الذكية',
-    image: '/assets/wjihub/reception-alt.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/reception-alt.webp`,
   },
 ];
 

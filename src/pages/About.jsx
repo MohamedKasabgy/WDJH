@@ -137,84 +137,84 @@ const services = [
 
 const facilityVisuals = {
   'مساحات عمل مشتركة': {
-    image: '/assets/wjihub/open-workspace.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/open-workspace.webp`,
     description: 'مساحات مرنة مصممة للعمل اليومي والتواصل بين رواد الأعمال.',
     details: 'توفر مساحات العمل المشتركة بيئة يومية مهيأة للتركيز والتعاون، مع سهولة الوصول إلى مرافق المجمع والخدمات المساندة وفرص التعارف داخل المجتمع الريادي.',
     benefits: ['بيئة عمل محفزة', 'فرص تواصل', 'سهولة الوصول للخدمات'],
     suitableFor: ['المؤسسون الأفراد', 'الفرق الصغيرة', 'العاملون عن بعد'],
   },
   'مكاتب خاصة': {
-    image: '/assets/wjihub/reception-alt.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/reception-alt.webp`,
     description: 'بيئة هادئة ومجهزة للفرق التي تحتاج خصوصية واستقرارًا.',
     details: 'تمنح المكاتب الخاصة الفرق مساحة ثابتة ومنظمة داخل بيئة ريادية، بما يساعدها على إدارة أعمالها اليومية مع الحفاظ على الخصوصية والقرب من مجتمع الابتكار.',
     benefits: ['مساحة ثابتة', 'خصوصية أعلى', 'قرب من مجتمع الأعمال'],
     suitableFor: ['الشركات الناشئة', 'فرق المنتجات', 'الشركات في مرحلة النمو'],
   },
   'قاعات اجتماعات': {
-    image: '/assets/wjihub/workspace-quote-wall.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/workspace-quote-wall.webp`,
     description: 'قاعات عملية لعقد الاجتماعات والعروض وورش التفكير.',
     details: 'قاعات مصممة لاستضافة الاجتماعات الرسمية، جلسات العصف الذهني، عروض المستثمرين، وورش التفكير ضمن بيئة منظمة ومهنية.',
     benefits: ['تجربة مهنية', 'تجهيزات مناسبة', 'بيئة منظمة'],
     suitableFor: ['اجتماعات الفرق', 'عروض المستثمرين', 'ورش العمل'],
   },
   'مساحات فعاليات وورش عمل': {
-    image: '/assets/wjihub/reception-main.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/reception-main.webp`,
     description: 'مساحات مناسبة للفعاليات واللقاءات وبناء المجتمع الريادي.',
     details: 'تدعم مساحات الفعاليات تنظيم اللقاءات الريادية، البرامج التدريبية، ورش العمل، وجلسات المجتمع التي تعزز تبادل الخبرات بين رواد الأعمال.',
     benefits: ['تنظيم مرن', 'حضور مجتمعي', 'تجربة ملائمة للورش'],
     suitableFor: ['الفعاليات الريادية', 'البرامج التدريبية', 'لقاءات المجتمع'],
   },
   'إنترنت عالي السرعة': {
-    image: '/assets/wjihub/open-workspace.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/open-workspace.webp`,
     description: 'اتصال موثوق يدعم سير العمل والتجارب الرقمية بسلاسة.',
     details: 'اتصال سريع ومستقر يساعد الفرق على تشغيل أدواتها السحابية، الاجتماعات المرئية، التجارب الرقمية، والعمليات اليومية دون تعطل غير ضروري.',
     benefits: ['اتصال مستقر', 'دعم العمل السحابي', 'تجربة رقمية سلسة'],
     suitableFor: ['فرق التقنية', 'الشركات الرقمية', 'فرق التشغيل'],
   },
   'دعم تقني وفني': {
-    image: '/assets/wjihub/workspace-quote-wall.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/workspace-quote-wall.webp`,
     description: 'دعم مستمر يساعد الفرق على التركيز على النمو والتطوير.',
     details: 'يوفر الدعم التقني والفني مساندة عملية للتعامل مع الاحتياجات التشغيلية داخل المجمع، بما يحافظ على استمرارية العمل ويرفع كفاءة التجربة اليومية.',
     benefits: ['حلول أسرع', 'استمرارية تشغيل', 'دعم يومي منظم'],
     suitableFor: ['الشركات المحتضنة', 'الفرق التشغيلية', 'منظمو الفعاليات'],
   },
   'نظام أمني شامل': {
-    image: '/assets/wjihub/reception-main.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/reception-main.webp`,
     description: 'بيئة آمنة ومنظمة تضمن راحة الشركات والزوار.',
     details: 'يعزز النظام الأمني الشامل الثقة داخل بيئة العمل من خلال تنظيم الدخول، حماية المرافق، وتوفير تجربة آمنة للشركات والزوار.',
     benefits: ['راحة واطمئنان', 'تنظيم الدخول', 'حماية المرافق'],
     suitableFor: ['الشركات المقيمة', 'الزوار', 'منظمو اللقاءات'],
   },
   'دخول على مدار الساعة': {
-    image: '/assets/wjihub/reception-alt.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/reception-alt.webp`,
     description: 'مرونة في الوصول تناسب إيقاع العمل الريادي المتغير.',
     details: 'يتيح الدخول على مدار الساعة مرونة أكبر للفرق التي تعمل وفق جداول مختلفة أو تحتاج إلى متابعة أعمالها خارج أوقات العمل التقليدية.',
     benefits: ['مرونة عالية', 'استجابة لإيقاع الفرق', 'استمرارية العمل'],
     suitableFor: ['فرق التقنية', 'المؤسسون', 'فرق الإطلاق والتشغيل'],
   },
   'مجتمع ريادي': {
-    image: '/assets/wjihub/open-workspace.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/open-workspace.webp`,
     description: 'شبكة من المؤسسين والمبتكرين والجهات الداعمة داخل مكان واحد.',
     details: 'يساعد المجتمع الريادي على بناء علاقات عملية بين المؤسسين والمبتكرين والشركاء، ويفتح فرصًا للتعاون والتعلم وتبادل الخبرات.',
     benefits: ['فرص تعارف', 'تبادل خبرات', 'تعاون وشراكات'],
     suitableFor: ['رواد الأعمال', 'المبتكرون', 'الشركاء الداعمون'],
   },
   'التصوير والطباعة': {
-    image: '/assets/wjihub/workspace-quote-wall.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/workspace-quote-wall.webp`,
     description: 'خدمات مساندة للمواد والعروض والاحتياجات التشغيلية اليومية.',
     details: 'تساند خدمات التصوير والطباعة احتياجات الفرق اليومية، من تجهيز المستندات والمواد التعريفية إلى دعم العروض والاجتماعات.',
     benefits: ['خدمات يومية', 'تجهيز مواد', 'دعم للاجتماعات'],
     suitableFor: ['فرق الأعمال', 'منظمو الورش', 'فرق التسويق'],
   },
   'خزائن شخصية': {
-    image: '/assets/wjihub/reception-alt.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/reception-alt.webp`,
     description: 'تفاصيل عملية تحفظ أغراض المستخدمين داخل بيئة العمل.',
     details: 'توفر الخزائن الشخصية مساحة حفظ عملية للمستخدمين، بما يجعل تجربة العمل اليومية أكثر ترتيبًا وراحة داخل المجمع.',
     benefits: ['حفظ الأغراض', 'راحة يومية', 'تنظيم أفضل'],
     suitableFor: ['المستخدمون اليوميون', 'أصحاب العضويات', 'فرق العمل المشتركة'],
   },
   'منطقة قهوة': {
-    image: '/assets/wjihub/reception-main.webp',
+    image: `${import.meta.env.BASE_URL}assets/wjihub/reception-main.webp`,
     description: 'مساحة غير رسمية للقاءات السريعة وبناء العلاقات.',
     details: 'تمنح منطقة القهوة مساحة اجتماعية خفيفة للقاءات السريعة، المحادثات العفوية، وبناء العلاقات بين أعضاء المجتمع.',
     benefits: ['لقاءات غير رسمية', 'بناء علاقات', 'استراحة مريحة'],
@@ -224,7 +224,7 @@ const facilityVisuals = {
 
 export default function About() {
   const [selectedService, setSelectedService] = useState(null);
-  const totalCompanies = companies.length;
+  const totalCompanies = 22;
   const startupCount = companies.filter(c => c.type === 'شركة ناشئة').length;
   const categoryCount = getUniqueValues(companies, 'mainCategory').length;
 
@@ -260,7 +260,7 @@ export default function About() {
           <div className="relative z-10 grid items-stretch gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div
               className="wjih-image-surface relative min-h-[260px] overflow-hidden rounded-lg border border-white/60 shadow-[0_24px_60px_rgba(23,33,63,0.16)]"
-              style={{ '--wjih-image': "url('/assets/wjihub/open-workspace.webp')" }}
+              style={{ '--wjih-image': `url('${import.meta.env.BASE_URL}assets/wjihub/open-workspace.webp')` }}
             >
               <div className="absolute bottom-0 right-0 left-0 z-10 p-5">
                 <span className="badge badge-sky mb-3">WJIH</span>
@@ -303,7 +303,7 @@ export default function About() {
         <section className="mb-10 grid grid-cols-1 gap-5 lg:grid-cols-[1.1fr_0.9fr]">
           <div
             className="wjih-image-surface wjih-parallax relative min-h-[360px] overflow-hidden rounded-lg border border-white/60 shadow-[0_28px_70px_rgba(23,33,63,0.18)] animate-fade-up"
-            style={{ '--wjih-image': "url('/assets/wjihub/workspace-quote-wall.webp')" }}
+            style={{ '--wjih-image': `url('${import.meta.env.BASE_URL}assets/wjihub/workspace-quote-wall.webp')` }}
           >
             <div className="absolute inset-0 z-10 flex items-end p-6 lg:p-8">
               <div className="max-w-xl">
@@ -312,7 +312,7 @@ export default function About() {
                   منظومة تجمع الشركات الناشئة والمبتكرين والشركاء
                 </h2>
                 <p className="text-sm leading-7 text-white/78">
-                  تعمل وادي جدة على بناء منظومة ريادية متكاملة تربط الشركات الناشئة بالمبتكرين والجهات الداعمة والشراكات النوعية، بما يخلق بيئة عملية للنمو وتبادل الخبرات.
+                  تعمل مجمع وادي جدة على بناء منظومة ريادية متكاملة تربط الشركات الناشئة بالمبتكرين والجهات الداعمة والشراكات النوعية، بما يخلق بيئة عملية للنمو وتبادل الخبرات.
                 </p>
               </div>
             </div>
@@ -323,7 +323,7 @@ export default function About() {
             <div className="relative z-10">
               <div className="mb-5 flex items-center gap-4">
                 <span className="flex h-14 w-20 items-center justify-center rounded-lg border border-[rgba(31,42,74,0.1)] bg-white shadow-sm">
-                  <img src="/assets/wjihub/cic-logo.webp" alt="CIC" className="max-h-9 max-w-16 object-contain" />
+                  <img src={`${import.meta.env.BASE_URL}assets/wjihub/cic-logo.webp`} alt="CIC" className="max-h-9 max-w-16 object-contain" />
                 </span>
                 <div>
                   <h3 className="text-lg font-bold" style={{ color: 'var(--color-primary)' }}>
@@ -335,7 +335,7 @@ export default function About() {
                 </div>
               </div>
               <p className="text-sm leading-7" style={{ color: 'rgba(31,42,74,0.68)' }}>
-                يبرز التعاون مع CIC ضمن الجهود الهادفة إلى تعزيز بيئة الابتكار وربط رواد الأعمال بالفرص والمساحات والخدمات المناسبة لنموهم، دون أن يحل محل هوية وادي جدة الرئيسية.
+                يبرز التعاون مع CIC ضمن الجهود الهادفة إلى تعزيز بيئة الابتكار وربط رواد الأعمال بالفرص والمساحات والخدمات المناسبة لنموهم، دون أن يحل محل هوية مجمع وادي جدة الرئيسية.
               </p>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 <span className="premium-chip justify-center">شراكات نوعية</span>

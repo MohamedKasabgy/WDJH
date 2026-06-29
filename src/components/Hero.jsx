@@ -34,11 +34,11 @@ export default function Hero() {
 
             <h1 className="font-bold leading-[1.08] mb-6 animate-fade-up stagger-2" style={{ color: 'var(--color-neutral)', fontSize: 'clamp(42px, 6vw, 82px)', letterSpacing: 0 }}>
               مستكشف
-              <span className="block text-gradient mt-1">منظومة وادي جدة</span>
+              <span className="block text-gradient mt-1 pb-4">مجمع وادي جدة</span>
             </h1>
 
             <p className="text-base md:text-lg leading-relaxed mb-8 max-w-2xl animate-fade-up stagger-3" style={{ color: 'rgba(31, 42, 74, 0.72)' }}>
-              منصة أنيقة لاكتشاف الشركات الناشئة والقطاعات وفرص التعاون داخل منظومة وادي جدة للابتكار.
+              منصة أنيقة لاكتشاف الشركات الناشئة والقطاعات وفرص التعاون داخل منظومة مجمع وادي جدة للابتكار.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 animate-fade-up stagger-4">
@@ -68,7 +68,7 @@ export default function Hero() {
             <div className="absolute inset-4 rounded-lg blur-3xl opacity-45 animate-pulse-glow" style={{ background: 'radial-gradient(circle, rgba(154,197,219,0.75), rgba(117,3,28,0.16) 45%, transparent 70%)' }} />
             <div
               className="wjih-image-surface wjih-parallax relative h-full min-h-[420px] rounded-lg overflow-hidden border border-white/70 shadow-[0_34px_90px_rgba(23,33,63,0.22)]"
-              style={{ '--wjih-image': "url('/assets/wjihub/reception-main.webp')" }}
+              style={{ '--wjih-image': `url('${import.meta.env.BASE_URL}assets/wjihub/reception-main.webp')` }}
             >
               <div className="absolute inset-0 opacity-35">
                 <div className="wadi-pattern" />

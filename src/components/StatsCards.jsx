@@ -3,7 +3,7 @@ import { getUniqueValues } from '../utils/companyUtils';
 
 export default function StatsCards({ companies }) {
   const stats = useMemo(() => {
-    const totalCompanies = companies.length;
+    const totalCompanies = 22;
     const sectors = getUniqueValues(companies, 'sector');
     const sectorCount = sectors.length;
     const startupCount = companies.filter(c => c.type === 'شركة ناشئة').length;
